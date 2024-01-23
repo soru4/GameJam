@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{35223D1A-0ABA-3E00-D682-2F913F0EB5DC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scipts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scipts/Dish.cs">
     <Files>
       <File FileName="Assets/Scipts/PhysicalIngredient.cs" Line="32" Column="28" />
       <File FileName="Assets/Scipts/Dish.cs" Line="23" Column="44" />
@@ -9,10 +9,8 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GameJam" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scipts" expanded="True">
-                <Node name="GameManager.cs" selected="True" />
-              </Node>
+            <Node name="Assets" expanded="True" selected="True">
+              <Node name="Scipts" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -21,7 +19,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d2d4e3c9-9146-4cf3-8c05-02427a0881b6" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="19847ca0-659e-49ed-abfb-0dcdbf0d11de" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
