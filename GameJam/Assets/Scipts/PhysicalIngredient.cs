@@ -12,6 +12,8 @@ public class PhysicalIngredient : MonoBehaviour
     public int MinCount = 0;
     public Ingredient ingredientType;
 
+
+
     // Start is called before the first frame update
     void Start()
     {

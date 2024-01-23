@@ -42,6 +42,7 @@ public class Dish
             sum += bellCurve.Evaluate(zScore);
         }
         sum /= ingredients.Count;
+        
         return sum;
 
         // involve equipment as well
