@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2259873141190197840}
   m_Layer: 0
-  m_Name: Egg Plate
+  m_Name: Eggs Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

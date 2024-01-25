@@ -30,7 +30,9 @@ public class Dish
 
 	public Dish(Dictionary<Ingredient, (float, float)> valuations, Dictionary<Equipments, float> equipmentValuations, int complexityLevel)
 	{
-
+		this.valuations = valuations;
+		this.equipmentValuations = equipmentValuations;
+		this.complexityLevel = complexityLevel;
 	}
 
 	float CalculateScore(Dictionary<Ingredient, float> ingredients, Dictionary<Equipments, float> equipment)
@@ -60,7 +62,7 @@ public class Dish
 
 public enum Ingredient
 {
-	Eggs, Milk, Flour, Sugar,
+	Eggs, Bread, Cheese, Flour,
 }
 
 public enum Equipments{
