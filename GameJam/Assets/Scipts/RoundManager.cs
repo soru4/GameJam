@@ -64,7 +64,7 @@ public class RoundManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-			Dish d = new Dish(new Dictionary<Ingredient, (float, float)> { { Ingredient.Eggs, (1, 1) }, { Ingredient.Cheese, (1, 1) }, { Ingredient.Bread, (1, 1) }, { Ingredient.Flour, (1, 1) } }, new Dictionary<Equipments, float> { }, 1);
+			Dish d = new Dish(new List<Ingredient> { Ingredient.Eggs, Ingredient.Cheese, Ingredient.Bread, Ingredient.Flour }, new Dictionary<Equipments, float> { }, 1);
 			dishRef = d;
 			SpawnIngredients();
         }

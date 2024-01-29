@@ -20,6 +20,7 @@ public class PhysicalIngredient : MonoBehaviour
     {
         ingredientName = gameObject.name.Split()[0];
         ingredientType = (Ingredient)Enum.Parse(typeof(Ingredient), ingredientName);
+        ingredientType.SetMinMax(MinCount, MaxCount);
     }
 
     // Update is called once per frame
@@ -32,14 +33,14 @@ public class PhysicalIngredient : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameManager.inst.updateIngredientAmount(this, ingredientType, +1);
+            GameManager.inst.updateIngredientAmount(this, +1);
             //increments up
-        }else if (Input.GetMouseButtonDown(1))
+        }
+        else if (Input.GetMouseButtonDown(1))
         {
-            GameManager.inst.updateIngredientAmount(this, ingredientType, -1);
+            GameManager.inst.updateIngredientAmount(this, -1);
             // increments down
         }
     }
 
-   
 }

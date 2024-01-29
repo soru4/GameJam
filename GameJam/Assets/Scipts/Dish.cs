@@ -32,7 +32,7 @@ public class Dish
 	{
 		foreach (Ingredient i in ingredients)
 		{
-			float min = GameManager.inst.physicalIngredientMap[i].MinCount, max = GameManager.inst.physicalIngredientMap[i].MaxCount;
+			float min = i.GetMinCount(), max = i.GetMaxCount();
 			float mean = Random.Range(min, max);
 			float std = (min + max) * 0.25f;
 			valuations.Add(i, (mean, std));
@@ -70,6 +70,14 @@ public class Dish
 public enum Ingredient
 {
 	Avocado, Bread, Cheese, Chocolate, Eggs, Fish, Flour, Lemon, Lettuce, Seasoning, Tomato
+}
+
+public static class IngredientMethods
+{
+	public static Dictionary<Ingredient, (float, float)?> ingredientToMinMax = new Dictionary<Ingredient, (float, float)?>();
+	public static float GetMinCount(this Ingredient ing) => (ingredientToMinMax[ing] ?? (0f, 0f)).Item1;
+	public static float GetMaxCount(this Ingredient ing) => (ingredientToMinMax[ing] ?? (0f, 0f)).Item2;
+	public static void SetMinMax(this Ingredient ing, float min, float max) => ingredientToMinMax[ing] = (min, max);
 }
 
 public enum Equipments{
