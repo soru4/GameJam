@@ -35,6 +35,7 @@ public class Dish
 		this.complexityLevel = complexityLevel;
 	}
 
+
 	float CalculateScore(Dictionary<Ingredient, float> ingredients, Dictionary<Equipments, float> equipment)
 	{
 		float sum = 0;
@@ -62,7 +63,7 @@ public class Dish
 
 public enum Ingredient
 {
-	Eggs, Bread, Cheese, Flour,
+	Avocado, Bread, Cheese, Chocolate, Eggs, Fish, Flour, Lemon, Lettuce, Seasoning, Tomato
 }
 
 public enum Equipments{

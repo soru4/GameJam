@@ -11,7 +11,7 @@ public class RoundManager : MonoBehaviour
 	
 	public float elapsedTime = 0f;
 	[SerializeField] Transform[] positions;
-	int[][] spawnPositions = new int[][] {
+	[SerializeField] int[][] spawnPositions = new int[][] {
 		new int[] { // 4 ing
 			1, 3, 11, 13
 		},
@@ -37,14 +37,15 @@ public class RoundManager : MonoBehaviour
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
-		RoundTimer += GameManager.inst.CookingTime + GameManager.inst.ScrollPastTime;
+		
 		
 	}
     // Start is called before the first frame update
     void Start()
     {
-	    // we want to start with starting the animcontroller
-	    GameManager.inst.currentGameState = GameState.ScrollPast;
+		// we want to start with starting the animcontroller
+		RoundTimer += GameManager.inst.CookingTime + GameManager.inst.ScrollPastTime;
+		GameManager.inst.currentGameState = GameState.ScrollPast;
 	    //SpawnIngredients();
     }
 
@@ -76,32 +77,36 @@ public class RoundManager : MonoBehaviour
 
 		// get actual ingredients
 		foreach(Ingredient x in dishRef.valuations.Keys){
-			print(x.ToString());
 			ingredients.Add(Resources.Load("Prefabs/" + x.ToString() + " Plate") as GameObject);
 		}
 
-		Debug.Log(ingredients.Count);
 
-		/*
+		
 		// get random ingredients
 		for(int i = ingredients.Count; i < GameManager.inst.ingredientsPerLevel[GameManager.inst.levelNumber]; i++)
         {
+			print(Enum.GetNames(typeof(Ingredient)).ToString() + "   " + Enum.GetNames(typeof(Ingredient)).Length);
 			Ingredient x = (Ingredient)UnityEngine.Random.Range(0, Enum.GetNames(typeof(Ingredient)).Length);
 			GameObject obj = Resources.Load("Prefabs/" + x.ToString() + " Plate") as GameObject;
+			//print(x.ToString() + " " + obj.name);
 			if (ingredients.Contains(obj))
 				i--;
 			else
 				ingredients.Add(obj);
 		}
-		*/
 
-
+		string s = "";
+		foreach(GameObject ing in ingredients)
+        {
+			s += ing != null ? ing.name + " " : "null ";
+        }
+		print(s);
 
         Shuffle(ref ingredients);
 
 		for(int i = 0; i < ingredients.Count; i++)
         {
-			instIngredients.Add(Instantiate(ingredients[i], positions[spawnPositions[GameManager.inst.levelNumber][i]].position + spawnOffset, Quaternion.identity, ingredientParent));
+			instIngredients.Add(Instantiate(ingredients[i], positions[spawnPositions[GameManager.inst.levelNumber][i]].position + spawnOffset, Quaternion.Euler(0, 180, 0), ingredientParent));
 			print(instIngredients[i].transform.position);
         }
 
@@ -137,7 +142,7 @@ public class RoundManager : MonoBehaviour
     {
 		Vector3 startPos = t.position;
 		Vector3 endPos = t.position - spawnOffset;
-		Quaternion startRot = Quaternion.identity, endRot = Quaternion.Euler(0, 90, 0);
+		Quaternion startRot = Quaternion.Euler(0, 180, 0), endRot = Quaternion.Euler(0, 90, 0);
 		float start = Time.time;
 		while(Time.time < start + dur)
         {

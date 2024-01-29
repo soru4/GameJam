@@ -3,9 +3,9 @@
     <Files>
       <File FileName="Assets/Scipts/PhysicalIngredient.cs" Line="15" Column="1" />
       <File FileName="Assets/Scipts/Dish.cs" />
-      <File FileName="Assets/Scipts/GameManager.cs" />
       <File FileName="Assets/Scipts/DishManager.cs" />
-      <File FileName="Assets/Scipts/RoundManager.cs" Line="33" Column="8" />
+      <File FileName="Assets/Scipts/GameManager.cs" />
+      <File FileName="Assets/Scipts/RoundManager.cs" Line="97" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,7 +21,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c25ffb06-f4ae-4eb5-9e06-95bb3e3234bf" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="fe2b7b2e-a429-4e8c-a33a-c94c2b60233e" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
