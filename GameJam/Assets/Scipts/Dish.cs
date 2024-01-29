@@ -28,9 +28,15 @@ public class Dish
 	public Dictionary<Equipments, float> equipmentValuations;
 	public int complexityLevel;
 
-	public Dish(Dictionary<Ingredient, (float, float)> valuations, Dictionary<Equipments, float> equipmentValuations, int complexityLevel)
+	public Dish(List<Ingredient> ingredients, Dictionary<Equipments, float> equipmentValuations, int complexityLevel)
 	{
-		this.valuations = valuations;
+		foreach (Ingredient i in ingredients)
+		{
+			float min = GameManager.inst.physicalIngredientMap[i].MinCount, max = GameManager.inst.physicalIngredientMap[i].MaxCount;
+			float mean = Random.Range(min, max);
+			float std = (min + max) * 0.25f;
+			valuations.Add(i, (mean, std));
+		}
 		this.equipmentValuations = equipmentValuations;
 		this.complexityLevel = complexityLevel;
 	}

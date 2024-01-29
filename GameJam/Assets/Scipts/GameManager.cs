@@ -36,8 +36,9 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void updateIngredientAmount(PhysicalIngredient physicalIngredient,  Ingredient ingredient, int amount)
+    public void updateIngredientAmount(PhysicalIngredient physicalIngredient, int amount)
     {
+        Ingredient ingredient = physicalIngredient.ingredientType;
         // check MONEY!!!!!!!!!!!!!!!!
         IngredientAmount[ingredient] = IngredientAmount.ContainsKey(ingredient) ? IngredientAmount[ingredient] + amount : amount;
         IngredientAmount[ingredient] = Mathf.Clamp(IngredientAmount[ingredient], physicalIngredient.MinCount, physicalIngredient.MaxCount);

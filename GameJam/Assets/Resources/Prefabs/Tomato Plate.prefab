@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7512657140694830657}
   - component: {fileID: 3430293178365838738}
+  - component: {fileID: 1262267040744267341}
   m_Layer: 0
   m_Name: Tomato Plate
   m_TagString: Untagged
@@ -54,6 +55,22 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.13
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1262267040744267341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076799896600650710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  MaxCount: 10
+  MinCount: 0
+  ingredientType: 0
 --- !u!1001 &337775133548862236
 PrefabInstance:
   m_ObjectHideFlags: 0

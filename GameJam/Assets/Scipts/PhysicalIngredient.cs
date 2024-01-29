@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,8 @@ public class PhysicalIngredient : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ingredientName = gameObject.name.Split()[0];
+        ingredientType = (Ingredient)Enum.Parse(typeof(Ingredient), ingredientName);
     }
 
     // Update is called once per frame
@@ -28,12 +30,11 @@ public class PhysicalIngredient : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             GameManager.inst.updateIngredientAmount(this, ingredientType, +1);
-            Debug.Log("+1 on" + gameObject.name);
             //increments up
-        }else if (Input.GetMouseButton(1))
+        }else if (Input.GetMouseButtonDown(1))
         {
             GameManager.inst.updateIngredientAmount(this, ingredientType, -1);
             // increments down

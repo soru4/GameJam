@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4951309459261162555}
   - component: {fileID: 1573947596600351793}
+  - component: {fileID: 1296211338221310982}
   m_Layer: 0
   m_Name: Lettuce Plate
   m_TagString: Untagged
@@ -54,6 +55,22 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.08
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1296211338221310982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3211641751296224028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  MaxCount: 10
+  MinCount: 0
+  ingredientType: 0
 --- !u!1001 &1611624207637140567
 PrefabInstance:
   m_ObjectHideFlags: 0
