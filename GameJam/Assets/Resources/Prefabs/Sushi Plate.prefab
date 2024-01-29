@@ -36,6 +36,7 @@ Transform:
   - {fileID: 4683771739458020102}
   - {fileID: 8590601941684377424}
   - {fileID: 977740368444593439}
+  - {fileID: 3289711314228821930}
   m_Father: {fileID: 412860531279326238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1674900366823978518
@@ -47,6 +48,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 412860531279326238}
+  - component: {fileID: 745529377694846475}
   m_Layer: 0
   m_Name: Sushi Plate
   m_TagString: Untagged
@@ -69,9 +71,29 @@ Transform:
   m_Children:
   - {fileID: 5707171997437887036}
   - {fileID: 711625869934363265}
-  - {fileID: 3289711314228821930}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &745529377694846475
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674900366823978518}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.13
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &266315439362712590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -374,7 +396,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 412860531279326238}
+    m_TransformParent: {fileID: 711625869934363265}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b27e226cba655480aacdcc60e25c8715, type: 3}
       propertyPath: m_LocalScale.x

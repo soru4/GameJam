@@ -31,6 +31,7 @@ public class PhysicalIngredient : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             GameManager.inst.updateIngredientAmount(this, ingredientType, +1);
+            Debug.Log("+1 on" + gameObject.name);
             //increments up
         }else if (Input.GetMouseButton(1))
         {
