@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8407089609385647692}
   - component: {fileID: 8580520351331747480}
   - component: {fileID: 4908576349406519346}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bread Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: loaf
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9bc30045f67ba4cb3b788939184611ba, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -209,6 +213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bread (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 71c84fc86e7d147e4b16d79cbdd4fb7a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -231,6 +239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plate
       objectReference: {fileID: 0}
+    - target: {fileID: 8183634346002003015, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -245,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.0000029504295
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalRotation.x
@@ -253,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalRotation.z
@@ -265,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -353,6 +365,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 71c84fc86e7d147e4b16d79cbdd4fb7a, type: 3}
       propertyPath: m_Name
       value: bread
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 71c84fc86e7d147e4b16d79cbdd4fb7a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

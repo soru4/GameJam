@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 746858205034720387}
   - component: {fileID: 5416398370505792579}
   - component: {fileID: 4400362021713527110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fish Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,17 +31,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6665588198655797817}
-  - {fileID: 8026254101393720062}
-  - {fileID: 6797517532086062022}
-  - {fileID: 6348006320979231442}
-  - {fileID: 1728876921261168226}
-  - {fileID: 7149983538153888039}
-  - {fileID: 6431508736446834575}
-  - {fileID: 4134871861888071596}
-  - {fileID: 7095601264722373866}
-  - {fileID: 7724370528612040817}
-  - {fileID: 254124027564360247}
   - {fileID: 8434426234651079825}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88,27 +77,39 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 746858205034720387}
+    m_TransformParent: {fileID: 8434426234651079825}
     m_Modifications:
     - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_Name
       value: Salmon fillet (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.47500005
+      value: 0.19000003
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22500002
+      value: 0.09000001
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.033999205
+      value: 0.013599682
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -160,6 +161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plate
       objectReference: {fileID: 0}
+    - target: {fileID: 8183634346002003015, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -174,7 +179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.965926
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalRotation.x
@@ -182,7 +187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.25881857
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalRotation.z
@@ -194,7 +199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -202,7 +207,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6665588198655797817}
+    - targetCorrespondingSourceObject: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8026254101393720062}
+    - targetCorrespondingSourceObject: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6797517532086062022}
+    - targetCorrespondingSourceObject: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6348006320979231442}
+    - targetCorrespondingSourceObject: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1728876921261168226}
+    - targetCorrespondingSourceObject: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7149983538153888039}
+    - targetCorrespondingSourceObject: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6431508736446834575}
+    - targetCorrespondingSourceObject: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4134871861888071596}
+    - targetCorrespondingSourceObject: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7095601264722373866}
+    - targetCorrespondingSourceObject: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7724370528612040817}
+    - targetCorrespondingSourceObject: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 254124027564360247}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
 --- !u!4 &8434426234651079825 stripped
@@ -216,27 +254,39 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 746858205034720387}
+    m_TransformParent: {fileID: 8434426234651079825}
     m_Modifications:
     - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_Name
       value: Salmon fillet (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.39999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.36999977
+      value: 0.14799991
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23499998
+      value: 0.094
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.28600112
+      value: -0.11440045
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -282,27 +332,39 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 746858205034720387}
+    m_TransformParent: {fileID: 8434426234651079825}
     m_Modifications:
     - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_Name
       value: Salmon fillet (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.39999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.25699994
+      value: 0.102799974
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.193
+      value: 0.0772
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.40599978
+      value: 0.16239992
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -348,35 +410,39 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 746858205034720387}
+    m_TransformParent: {fileID: 8434426234651079825}
     m_Modifications:
     - target: {fileID: 7151594660703261423, guid: 3a245daa6cb83334d8a55a5e90125b88, type: 3}
       propertyPath: m_Name
       value: Salmon
       objectReference: {fileID: 0}
+    - target: {fileID: 7151594660703261423, guid: 3a245daa6cb83334d8a55a5e90125b88, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7526713275803502677, guid: 3a245daa6cb83334d8a55a5e90125b88, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7526713275803502677, guid: 3a245daa6cb83334d8a55a5e90125b88, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 0.79999983
       objectReference: {fileID: 0}
     - target: {fileID: 7526713275803502677, guid: 3a245daa6cb83334d8a55a5e90125b88, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7526713275803502677, guid: 3a245daa6cb83334d8a55a5e90125b88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.26389813
+      value: -0.10555925
       objectReference: {fileID: 0}
     - target: {fileID: 7526713275803502677, guid: 3a245daa6cb83334d8a55a5e90125b88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09496647
+      value: 0.037986588
       objectReference: {fileID: 0}
     - target: {fileID: 7526713275803502677, guid: 3a245daa6cb83334d8a55a5e90125b88, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1656462
+      value: -0.06625848
       objectReference: {fileID: 0}
     - target: {fileID: 7526713275803502677, guid: 3a245daa6cb83334d8a55a5e90125b88, type: 3}
       propertyPath: m_LocalRotation.w
@@ -422,27 +488,39 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 746858205034720387}
+    m_TransformParent: {fileID: 8434426234651079825}
     m_Modifications:
     - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_Name
       value: Salmon fillet
       objectReference: {fileID: 0}
+    - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08000025
+      value: -0.032000102
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.17699999
+      value: 0.0708
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.48599887
+      value: 0.19439955
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -488,27 +566,39 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 746858205034720387}
+    m_TransformParent: {fileID: 8434426234651079825}
     m_Modifications:
     - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_Name
       value: Salmon fillet (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.37500018
+      value: 0.15000008
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19800001
+      value: 0.07920001
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.20400083
+      value: 0.08160033
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -554,27 +644,39 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 746858205034720387}
+    m_TransformParent: {fileID: 8434426234651079825}
     m_Modifications:
     - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_Name
       value: Salmon fillet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.39999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.035999745
+      value: 0.014399898
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.18999998
+      value: 0.076
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.28599894
+      value: 0.114399575
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -620,27 +722,39 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 746858205034720387}
+    m_TransformParent: {fileID: 8434426234651079825}
     m_Modifications:
     - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_Name
       value: Salmon fillet (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.39999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.591
+      value: 0.23640001
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.238
+      value: 0.0952
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.166
+      value: -0.0664
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -686,27 +800,39 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 746858205034720387}
+    m_TransformParent: {fileID: 8434426234651079825}
     m_Modifications:
     - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_Name
       value: Salmon fillet (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.154
+      value: 0.0616
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.195
+      value: 0.078
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.084
+      value: 0.0336
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -752,27 +878,39 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 746858205034720387}
+    m_TransformParent: {fileID: 8434426234651079825}
     m_Modifications:
     - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_Name
       value: Salmon fillet (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.14099994
+      value: 0.05639998
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.18
+      value: 0.072000004
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6059997
+      value: 0.24239989
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -818,27 +956,39 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 746858205034720387}
+    m_TransformParent: {fileID: 8434426234651079825}
     m_Modifications:
     - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_Name
       value: Salmon fillet (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 283581748339012267, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.25399986
+      value: 0.10159995
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.222
+      value: 0.088800006
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.086001635
+      value: -0.034400653
       objectReference: {fileID: 0}
     - target: {fileID: 622812539259430929, guid: 3c0685d4d52f57548aa967a3907720f9, type: 3}
       propertyPath: m_LocalRotation.w

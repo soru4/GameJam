@@ -13,19 +13,19 @@ public class RoundManager : MonoBehaviour
 	[SerializeField] Transform[] positions;
 	[SerializeField] int[][] spawnPositions = new int[][] {
 		new int[] { // 4 ing
-			1, 3, 11, 13
+			0, 1, 2, 3
 		},
 		new int[] { // 6 ing
-			1, 3, 5, 9, 11, 13
+			0, 1, 2, 3, 4, 8
 		},
-		new int[] { // 8 ing
-			1, 2, 3, 5, 9, 11, 12, 13
+		new int[] { // 9 ing
+			0, 1, 2, 3, 4, 5, 6, 7, 8
 		},
 		new int[] { // 11 ing
-			1, 2, 3, 5, 6, 7, 8, 9, 11, 12, 13
+			0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11
 		},
-		new int[] { // 15 ing
-			1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+		new int[] { // 13 ing
+			0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
 		},
 	};
 	[SerializeField] Transform ingredientParent;
@@ -33,6 +33,7 @@ public class RoundManager : MonoBehaviour
 	[SerializeField] AnimationCurve smooth;
 	[SerializeField] float slideDuration;
 	[SerializeField] float slideGap;
+	[SerializeField] float startAngle, finalAngle;
 
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
@@ -80,13 +81,14 @@ public class RoundManager : MonoBehaviour
 			ingredients.Add(Resources.Load("Prefabs/" + x.ToString() + " Plate") as GameObject);
 		}
 
+		int maxIngredientsLevel = GameManager.inst.ingredientsPerLevel[GameManager.inst.levelNumber];
+		int ingredientCount = Enum.GetNames(typeof(Ingredient)).Length;
 
-		
 		// get random ingredients
-		for(int i = ingredients.Count; i < GameManager.inst.ingredientsPerLevel[GameManager.inst.levelNumber]; i++)
+		for (int i = ingredients.Count; i < Mathf.Min(maxIngredientsLevel, ingredientCount); i++)
         {
-			print(Enum.GetNames(typeof(Ingredient)).ToString() + "   " + Enum.GetNames(typeof(Ingredient)).Length);
-			Ingredient x = (Ingredient)UnityEngine.Random.Range(0, Enum.GetNames(typeof(Ingredient)).Length);
+			//print(Enum.GetNames(typeof(Ingredient)).ToString() + "   " + );
+			Ingredient x = (Ingredient)UnityEngine.Random.Range(0, ingredientCount);
 			GameObject obj = Resources.Load("Prefabs/" + x.ToString() + " Plate") as GameObject;
 			//print(x.ToString() + " " + obj.name);
 			if (ingredients.Contains(obj))
@@ -100,14 +102,14 @@ public class RoundManager : MonoBehaviour
         {
 			s += ing != null ? ing.name + " " : "null ";
         }
-		print(s);
+		//print(s);
 
         Shuffle(ref ingredients);
 
 		for(int i = 0; i < ingredients.Count; i++)
         {
-			instIngredients.Add(Instantiate(ingredients[i], positions[spawnPositions[GameManager.inst.levelNumber][i]].position + spawnOffset, Quaternion.Euler(0, 180, 0), ingredientParent));
-			print(instIngredients[i].transform.position);
+			instIngredients.Add(Instantiate(ingredients[i], positions[spawnPositions[GameManager.inst.levelNumber][i]].position + spawnOffset, Quaternion.Euler(0, startAngle, 0), ingredientParent));
+//			print(instIngredients[i].transform.position);
         }
 
 		StartCoroutine(ChainSlide(instIngredients, slideGap));
@@ -142,7 +144,7 @@ public class RoundManager : MonoBehaviour
     {
 		Vector3 startPos = t.position;
 		Vector3 endPos = t.position - spawnOffset;
-		Quaternion startRot = Quaternion.Euler(0, 180, 0), endRot = Quaternion.Euler(0, 90, 0);
+		Quaternion startRot = Quaternion.Euler(0, startAngle, 0), endRot = Quaternion.Euler(0, finalAngle, 0);
 		float start = Time.time;
 		while(Time.time < start + dur)
         {

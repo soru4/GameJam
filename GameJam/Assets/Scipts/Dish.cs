@@ -5,21 +5,13 @@ using UnityEngine;
 
 public class Dish
 {
-	public static List<Dish> dishes = new List<Dish>
-	{
-
-	};
+	public static List<Dish> dishes = new List<Dish>();
 
 	public static Dish QueryDish(float complexity) //implement later
 	{
 		return dishes[Random.Range(0, dishes.Count)];
 	}
     
-	public static Dictionary<Ingredient, float> ingredientCosts = new Dictionary<Ingredient, float>
-	{
-        
-	};
-
 	public static AnimationCurve bellCurve;
 
 	// Static Above, Instance Below
@@ -30,6 +22,8 @@ public class Dish
 
 	public Dish(List<Ingredient> ingredients, Dictionary<Equipments, float> equipmentValuations, int complexityLevel)
 	{
+		valuations = new Dictionary<Ingredient, (float, float)>();
+		
 		foreach (Ingredient i in ingredients)
 		{
 			float min = i.GetMinCount(), max = i.GetMaxCount();
@@ -37,6 +31,7 @@ public class Dish
 			float std = (min + max) * 0.25f;
 			valuations.Add(i, (mean, std));
 		}
+
 		this.equipmentValuations = equipmentValuations;
 		this.complexityLevel = complexityLevel;
 	}
@@ -75,9 +70,14 @@ public enum Ingredient
 public static class IngredientMethods
 {
 	public static Dictionary<Ingredient, (float, float)?> ingredientToMinMax = new Dictionary<Ingredient, (float, float)?>();
+	public static Dictionary<Ingredient, float> ingredientCosts = new Dictionary<Ingredient, float>();
+
 	public static float GetMinCount(this Ingredient ing) => (ingredientToMinMax[ing] ?? (0f, 0f)).Item1;
 	public static float GetMaxCount(this Ingredient ing) => (ingredientToMinMax[ing] ?? (0f, 0f)).Item2;
 	public static void SetMinMax(this Ingredient ing, float min, float max) => ingredientToMinMax[ing] = (min, max);
+
+	public static void SetCost(this Ingredient ing, float cost) => ingredientCosts[ing] = cost;
+	public static float GetCost(this Ingredient ing) => ingredientCosts[ing];
 }
 
 public enum Equipments{

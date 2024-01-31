@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8687204259331093210}
   - component: {fileID: 8366109998349522054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Noodle Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 8183634346002003015, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_Name
       value: plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183634346002003015, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalPosition.x
@@ -129,6 +133,10 @@ PrefabInstance:
     - target: {fileID: 8575389795609162483, guid: 72f7713924360c14295e85883d1da829, type: 3}
       propertyPath: m_Name
       value: Udon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575389795609162483, guid: 72f7713924360c14295e85883d1da829, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8956031527661824073, guid: 72f7713924360c14295e85883d1da829, type: 3}
       propertyPath: m_LocalScale.x
@@ -203,6 +211,10 @@ PrefabInstance:
     - target: {fileID: 4664574945878475463, guid: 57eac44584c071d4d8ef40566756f86c, type: 3}
       propertyPath: m_Name
       value: Chopsticks B
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664574945878475463, guid: 57eac44584c071d4d8ef40566756f86c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5471933606466574461, guid: 57eac44584c071d4d8ef40566756f86c, type: 3}
       propertyPath: m_LocalScale.x

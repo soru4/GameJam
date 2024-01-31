@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: -8679921383154817045}
   - component: {fileID: -5754084199372789682}
   - component: {fileID: -7511558181221131132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chocolate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,11 +27,11 @@ Transform:
   m_GameObject: {fileID: 919132149155446097}
   serializedVersion: 2
   m_LocalRotation: {x: -0.02607219, y: 0.44589353, z: -0.08831825, w: 0.8903365}
-  m_LocalPosition: {x: 0.246, y: 0.24, z: -0.031}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0.098400004, y: 0.096, z: -0.035337444}
+  m_LocalScale: {x: 1.2, y: 1.2000002, z: 1.1999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7338869937373494842}
+  m_Father: {fileID: 8852331636165111549}
   m_LocalEulerAnglesHint: {x: 1.853, y: 53.036, z: -10.405}
 --- !u!33 &-5754084199372789682
 MeshFilter:
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7338869937373494842}
   - component: {fileID: 4674024500432116893}
   - component: {fileID: -4558342357571463032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Chocolate Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,14 +109,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4761244710317512775}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8852331636165111549}
-  - {fileID: -8679921383154817045}
-  - {fileID: 3308397959372149844}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &4674024500432116893
@@ -167,7 +165,7 @@ GameObject:
   - component: {fileID: 3308397959372149844}
   - component: {fileID: 4174613985513201265}
   - component: {fileID: 2575344982689740042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chocolateWrapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,11 +181,11 @@ Transform:
   m_GameObject: {fileID: 6279923595364202127}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.30336627, z: -0, w: 0.95287406}
-  m_LocalPosition: {x: -0.081, y: 0.121, z: 0.211}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: -0.0324, y: 0.0484, z: 0.06146256}
+  m_LocalScale: {x: 1.2000002, y: 1.2, z: 1.2000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7338869937373494842}
+  m_Father: {fileID: 8852331636165111549}
   m_LocalEulerAnglesHint: {x: 0, y: -35.32, z: 0}
 --- !u!33 &4174613985513201265
 MeshFilter:
@@ -252,7 +250,7 @@ GameObject:
   - component: {fileID: 8852331636165111549}
   - component: {fileID: 5581674274132713816}
   - component: {fileID: 7679447034781046162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,13 +265,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8183634346002003015}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.86602443, z: -0, w: 0.5000018}
   m_LocalPosition: {x: 0, y: 0, z: 0.057343602}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: -8679921383154817045}
+  - {fileID: 3308397959372149844}
   m_Father: {fileID: 7338869937373494842}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -120, z: 0}
 --- !u!33 &5581674274132713816
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 475376236236594405}
   - component: {fileID: 8027802154928971481}
   - component: {fileID: 1941091293736812528}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shakerPepper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3488632984470383790}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.5105274, z: -0, w: 0.8598615}
-  m_LocalPosition: {x: -0.015199999, y: 0.048, z: -0.0936}
+  m_LocalRotation: {x: -0, y: -0.5105273, z: -0, w: 0.8598615}
+  m_LocalPosition: {x: 0.0475324, y: 0.048000004, z: -0.071943805}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2132188413998784570}
   - component: {fileID: 7013356393581820823}
   - component: {fileID: 8028470475853102779}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6434894432331735620}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.2588186, z: -0, w: 0.965926}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
@@ -119,7 +119,7 @@ Transform:
   - {fileID: 475376236236594405}
   - {fileID: 7196294053496805988}
   m_Father: {fileID: 3037183070913469476}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
 --- !u!33 &7013356393581820823
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 7196294053496805988}
   - component: {fileID: 584378287531199763}
   - component: {fileID: 4830793170787017524}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shakerSalt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 7156723130689670561}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7525233, z: -0, w: 0.65856564}
-  m_LocalPosition: {x: -0.1044, y: 0.051999997, z: 0.028400002}
+  m_LocalPosition: {x: -0.041667603, y: 0.051999997, z: 0.050056197}
   m_LocalScale: {x: 1.2000002, y: 1.2, z: 1.2000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 3037183070913469476}
   - component: {fileID: 4127950966290644389}
   - component: {fileID: 4204650464177028060}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Seasoning Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}

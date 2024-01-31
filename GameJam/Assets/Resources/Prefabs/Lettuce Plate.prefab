@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4951309459261162555}
   - component: {fileID: 1573947596600351793}
   - component: {fileID: 1296211338221310982}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lettuce Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabbage
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a16037fdb10c8428b9c3a6cc9f4737ef, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -156,6 +160,10 @@ PrefabInstance:
     - target: {fileID: 8183634346002003015, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_Name
       value: plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183634346002003015, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8852331636165111549, guid: 1524e2f64dc8344fd8c305fc7bd8cd02, type: 3}
       propertyPath: m_LocalPosition.x
