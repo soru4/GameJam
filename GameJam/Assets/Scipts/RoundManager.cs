@@ -7,8 +7,9 @@ public class RoundManager : MonoBehaviour
 {
     
 	private int RoundTimer; // round is one dish
-	public Dish dishRef; 
-	
+	public Dish dishRef;
+	public Animator beltAnimator;
+	public float beltSpeed = 1f;
 	public float elapsedTime = 0f;
 	[SerializeField] Transform[] positions;
 	[SerializeField] int[][] spawnPositions = new int[][] {
@@ -34,7 +35,7 @@ public class RoundManager : MonoBehaviour
 	[SerializeField] float slideDuration;
 	[SerializeField] float slideGap;
 	[SerializeField] float startAngle, finalAngle;
-
+	bool dishInstantiated = false;
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
@@ -48,22 +49,60 @@ public class RoundManager : MonoBehaviour
 		RoundTimer += GameManager.inst.CookingTime + GameManager.inst.ScrollPastTime;
 		GameManager.inst.currentGameState = GameState.ScrollPast;
 	    //SpawnIngredients();
-    }
+   
+		// we want to start with starting the animcontroller
 
-    // Update is called once per frame
-    void Update()
-    {
-	    switch(GameManager.inst.currentGameState){
-	    case GameState.ScrollPast:
-	    	if(elapsedTime >= GameManager.inst.ScrollPastTime ){
-	    		GameManager.inst.currentGameState = GameState.JustIngredients;
-	    		
-	    	}
-	    	break;
-	    }
+		RoundTimer = GameManager.inst.CookingTime + GameManager.inst.ScrollPastTime;
+		GameManager.inst.currentGameState = GameState.ScrollPast;
+		//SpawnIngredients();
+		elapsedTime = 0;
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		elapsedTime += Time.deltaTime;
+		switch (GameManager.inst.currentGameState)
+		{
+			case GameState.ScrollPast:
+				beltAnimator.speed = beltSpeed;
+				if(elapsedTime >= GameManager.inst.ScrollPastTime - slideDuration)
+                {
+					if (!dishInstantiated)
+					{
+						Dish d = new Dish(new List<Ingredient> { Ingredient.Eggs, Ingredient.Cheese, Ingredient.Bread, Ingredient.Flour }, new Dictionary<Equipments, float> { }, 1);
+						dishRef = d;
+						SpawnIngredients();
+						dishInstantiated = true;
+					}
+				}
+				if (elapsedTime >= GameManager.inst.ScrollPastTime)
+				{
+					GameManager.inst.currentGameState = GameState.StopScroll;
+					beltAnimator.speed = 0;
+				}
+				break;
+			case GameState.StopScroll:
+				beltAnimator.speed = 0;
+				if (elapsedTime - GameManager.inst.ScrollPastTime >= GameManager.inst.CookingTime)
+				{
+					beltAnimator.speed = beltSpeed;
+					GameManager.inst.currentGameState = GameState.ContinueScroll;
+				}
+				break;
+			case GameState.ContinueScroll:
+				beltAnimator.speed = beltSpeed;
+				if (elapsedTime - (GameManager.inst.ScrollPastTime + GameManager.inst.CookingTime) >= 2f)
+				{
+					GameManager.inst.currentGameState = GameState.ShowScore;
+
+				}
+				break;
+
+		}
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space))
         {
 			Dish d = new Dish(new List<Ingredient> { Ingredient.Eggs, Ingredient.Cheese, Ingredient.Bread, Ingredient.Flour }, new Dictionary<Equipments, float> { }, 1);
 			dishRef = d;

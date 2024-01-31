@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     Dictionary<Ingredient, int> IngredientAmount = new Dictionary<Ingredient, int>();
     public int Money = 100;
     public GameState currentGameState;
-    
+    public GameObject beltSpawnPoint ;
     public int ScrollPastTime = 5;
     public int CookingTime = 10;
     public int levelNumber = 0;
@@ -38,10 +38,15 @@ public class GameManager : MonoBehaviour
     }
     public void updateIngredientAmount(PhysicalIngredient physicalIngredient, int amount)
     {
-        Ingredient ingredient = physicalIngredient.ingredientType;
-        // check MONEY!!!!!!!!!!!!!!!!
-        IngredientAmount[ingredient] = IngredientAmount.ContainsKey(ingredient) ? IngredientAmount[ingredient] + amount : amount;
-        IngredientAmount[ingredient] = Mathf.Clamp(IngredientAmount[ingredient], physicalIngredient.MinCount, physicalIngredient.MaxCount);
+        if (currentGameState == GameState.StopScroll)
+        {
+            Instantiate(physicalIngredient.gameObject, beltSpawnPoint.transform.position, Quaternion.identity).transform.localScale = new Vector3(9,9, 9);
+
+            Ingredient ingredient = physicalIngredient.ingredientType;
+            // check MONEY!!!!!!!!!!!!!!!!
+            IngredientAmount[ingredient] = IngredientAmount.ContainsKey(ingredient) ? IngredientAmount[ingredient] + amount : amount;
+            IngredientAmount[ingredient] = Mathf.Clamp(IngredientAmount[ingredient], physicalIngredient.MinCount, physicalIngredient.MaxCount);
+        }
     }
 
     
@@ -49,7 +54,8 @@ public class GameManager : MonoBehaviour
 public enum GameState
     {
 	    ScrollPast,
-	    JustIngredients,
+        StopScroll,
+        ContinueScroll,
 	    ShowScore, 
 	    RoundStart,
 	    RoundEnd,
