@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 
     
     public static GameManager inst; 
-    Dictionary<Ingredient, int> IngredientAmount = new Dictionary<Ingredient, int>();
-    public int Money = 100;
+    public Dictionary<Ingredient, int> IngredientAmount = new Dictionary<Ingredient, int>();
+    public float money = 100;
     public GameState currentGameState;
     
     public int ScrollPastTime = 5;
@@ -34,14 +34,34 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            string s = "";
+            foreach(var pair in IngredientAmount)
+            {
+                if (pair.Value == 0)
+                    continue;
+                s += pair.Key.ToString() + " " + pair.Value + ", ";
+            }
+            print(s);
+            IngredientAmount = new Dictionary<Ingredient, int>();
+        }
     }
-    public void updateIngredientAmount(PhysicalIngredient physicalIngredient, int amount)
+
+    public void UpdateIngredientAmount(PhysicalIngredient physicalIngredient, int amount)
     {
+
+
         Ingredient ingredient = physicalIngredient.ingredientType;
-        // check MONEY!!!!!!!!!!!!!!!!
-        IngredientAmount[ingredient] = IngredientAmount.ContainsKey(ingredient) ? IngredientAmount[ingredient] + amount : amount;
-        IngredientAmount[ingredient] = Mathf.Clamp(IngredientAmount[ingredient], physicalIngredient.MinCount, physicalIngredient.MaxCount);
+
+        if(money >= ingredient.GetCost())
+        {
+            IngredientAmount[ingredient] = IngredientAmount.ContainsKey(ingredient) ? IngredientAmount[ingredient] + amount : amount;
+            IngredientAmount[ingredient] = Mathf.Clamp(IngredientAmount[ingredient], 0, ingredient.GetMax());
+            money += amount * ingredient.GetCost();
+        }
+
+
     }
 
     

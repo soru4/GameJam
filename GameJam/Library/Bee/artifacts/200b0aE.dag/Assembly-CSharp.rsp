@@ -354,6 +354,7 @@
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.7f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scipts/Dish.cs"
 "Assets/Scipts/DishManager.cs"
+"Assets/Scipts/DisplayManager.cs"
 "Assets/Scipts/GameManager.cs"
 "Assets/Scipts/PhysicalIngredient.cs"
 "Assets/Scipts/RoundManager.cs"

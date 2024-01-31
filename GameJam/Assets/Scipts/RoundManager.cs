@@ -97,12 +97,14 @@ public class RoundManager : MonoBehaviour
 				ingredients.Add(obj);
 		}
 
+		/*
 		string s = "";
 		foreach(GameObject ing in ingredients)
         {
 			s += ing != null ? ing.name + " " : "null ";
         }
-		//print(s);
+		print(s);
+		*/
 
         Shuffle(ref ingredients);
 

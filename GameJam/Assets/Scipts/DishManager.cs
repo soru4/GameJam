@@ -31,17 +31,17 @@ public class DishManager : MonoBehaviour
 
     void InitializeMinMaxDict()
     {
-        Ingredient.Avocado.     SetMinMax(1, 4);
-        Ingredient.Bread.       SetMinMax(1, 5);
-        Ingredient.Cheese.      SetMinMax(1, 10);
-        Ingredient.Chocolate.   SetMinMax(1, 3);
-        Ingredient.Eggs.        SetMinMax(1, 8);
-        Ingredient.Fish.        SetMinMax(1, 3);
-        Ingredient.Flour.       SetMinMax(1, 4);
-        Ingredient.Lemon.       SetMinMax(1, 5);
-        Ingredient.Lettuce.     SetMinMax(1, 3);
-        Ingredient.Seasoning.   SetMinMax(1, 15);
-        Ingredient.Tomato.      SetMinMax(1, 5);
+        Ingredient.Avocado.     SetMax(4);
+        Ingredient.Bread.       SetMax(5);
+        Ingredient.Cheese.      SetMax(10);
+        Ingredient.Chocolate.   SetMax(3);
+        Ingredient.Eggs.        SetMax(8);
+        Ingredient.Fish.        SetMax(3);
+        Ingredient.Flour.       SetMax(4);
+        Ingredient.Lemon.       SetMax(5);
+        Ingredient.Lettuce.     SetMax(3);
+        Ingredient.Seasoning.   SetMax(15);
+        Ingredient.Tomato.      SetMax(5);
     }
 
     // Update is called once per frame

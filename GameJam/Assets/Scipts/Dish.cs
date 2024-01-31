@@ -26,9 +26,9 @@ public class Dish
 		
 		foreach (Ingredient i in ingredients)
 		{
-			float min = i.GetMinCount(), max = i.GetMaxCount();
-			float mean = Random.Range(min, max);
-			float std = (min + max) * 0.25f;
+			float max = i.GetMax();
+			float mean = Random.Range(0, max);
+			float std = max * 0.25f;
 			valuations.Add(i, (mean, std));
 		}
 
@@ -69,12 +69,11 @@ public enum Ingredient
 
 public static class IngredientMethods
 {
-	public static Dictionary<Ingredient, (float, float)?> ingredientToMinMax = new Dictionary<Ingredient, (float, float)?>();
+	public static Dictionary<Ingredient, int> ingredientMax = new Dictionary<Ingredient, int>();
 	public static Dictionary<Ingredient, float> ingredientCosts = new Dictionary<Ingredient, float>();
 
-	public static float GetMinCount(this Ingredient ing) => (ingredientToMinMax[ing] ?? (0f, 0f)).Item1;
-	public static float GetMaxCount(this Ingredient ing) => (ingredientToMinMax[ing] ?? (0f, 0f)).Item2;
-	public static void SetMinMax(this Ingredient ing, float min, float max) => ingredientToMinMax[ing] = (min, max);
+	public static void SetMax(this Ingredient ing, int max) => ingredientMax[ing] = max;
+	public static int GetMax(this Ingredient ing) => ingredientMax[ing];
 
 	public static void SetCost(this Ingredient ing, float cost) => ingredientCosts[ing] = cost;
 	public static float GetCost(this Ingredient ing) => ingredientCosts[ing];

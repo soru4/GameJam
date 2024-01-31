@@ -61,6 +61,7 @@
     <Compile Include="Assets/Scipts/Dish.cs" />
     <Compile Include="Assets/Scipts/SpotlightManager.cs" />
     <Compile Include="Assets/Scipts/PhysicalIngredient.cs" />
+    <Compile Include="Assets/Scipts/DisplayManager.cs" />
     <Compile Include="Assets/Scipts/DishManager.cs" />
     <Compile Include="Assets/Scipts/GameManager.cs" />
     <Compile Include="Assets/Scipts/RoundManager.cs" />
