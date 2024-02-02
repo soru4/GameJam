@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour
     public int[] ingredientsPerLevel = new int[] { 4, 6, 8, 11, 15 };
 	public int roundNumber = 0; // 0 equipment, 1 for dish 1, 2, 3
 	public Dictionary<Ingredient, PhysicalIngredient> physicalIngredientMap = new Dictionary<Ingredient, PhysicalIngredient>();
-
-
+	public List<GameObject> ingredientsOnBelt;
+	public int TotalNumOfIngredients = 0;
+	public Transform beltCenter;
     private void Awake()
     {
         inst = this;
@@ -40,8 +41,20 @@ public class GameManager : MonoBehaviour
     {
         if (currentGameState == GameState.StopScroll)
         {
-            Instantiate(physicalIngredient.gameObject, beltSpawnPoint.transform.position, Quaternion.identity).transform.localScale = new Vector3(9,9, 9);
-
+        	TotalNumOfIngredients += amount;
+        	if(amount >= 1){
+		        GameObject x = Instantiate(physicalIngredient.gameObject, beltCenter.position + new Vector3((-21 * TotalNumOfIngredients) - 120,0,0)  , Quaternion.identity);
+		        x.transform.localScale = new Vector3(9,9, 9);
+		        x.GetComponent<PhysicalIngredient>().onBelt = true;
+		        ingredientsOnBelt.Add(x);
+        	}else if(amount <= -1){
+        		foreach(GameObject x in ingredientsOnBelt){
+        			if(x.GetComponent<PhysicalIngredient>().ingredientType == physicalIngredient.ingredientType){
+        				ingredientsOnBelt.Remove(x);
+        				Destroy(x);
+        			}
+        		}
+        	}
             Ingredient ingredient = physicalIngredient.ingredientType;
             // check MONEY!!!!!!!!!!!!!!!!
             IngredientAmount[ingredient] = IngredientAmount.ContainsKey(ingredient) ? IngredientAmount[ingredient] + amount : amount;

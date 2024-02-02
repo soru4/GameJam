@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class RoundManager : MonoBehaviour
 {
-    
+	public static RoundManager inst;
 	private int RoundTimer; // round is one dish
 	public Dish dishRef;
 	public Animator beltAnimator;
-	public float beltSpeed = 1f;
+	public float beltSpeed = 0.2f;
 	public float elapsedTime = 0f;
 	[SerializeField] Transform[] positions;
 	[SerializeField] int[][] spawnPositions = new int[][] {
@@ -39,7 +39,7 @@ public class RoundManager : MonoBehaviour
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
-		
+		inst = this;
 		
 	}
     // Start is called before the first frame update
@@ -79,11 +79,11 @@ public class RoundManager : MonoBehaviour
 				if (elapsedTime >= GameManager.inst.ScrollPastTime)
 				{
 					GameManager.inst.currentGameState = GameState.StopScroll;
-					beltAnimator.speed = 0;
+					beltAnimator.speed = beltSpeed;
 				}
 				break;
 			case GameState.StopScroll:
-				beltAnimator.speed = 0;
+				beltAnimator.speed = beltSpeed;
 				if (elapsedTime - GameManager.inst.ScrollPastTime >= GameManager.inst.CookingTime)
 				{
 					beltAnimator.speed = beltSpeed;
@@ -91,7 +91,8 @@ public class RoundManager : MonoBehaviour
 				}
 				break;
 			case GameState.ContinueScroll:
-				beltAnimator.speed = beltSpeed;
+				beltSpeed *=1.01f;
+				beltAnimator.speed = beltSpeed ;
 				if (elapsedTime - (GameManager.inst.ScrollPastTime + GameManager.inst.CookingTime) >= 2f)
 				{
 					GameManager.inst.currentGameState = GameState.ShowScore;
@@ -102,12 +103,7 @@ public class RoundManager : MonoBehaviour
 		}
 
 
-		if (Input.GetKeyDown(KeyCode.Space))
-        {
-			Dish d = new Dish(new List<Ingredient> { Ingredient.Eggs, Ingredient.Cheese, Ingredient.Bread, Ingredient.Flour }, new Dictionary<Equipments, float> { }, 1);
-			dishRef = d;
-			SpawnIngredients();
-        }
+		
     }
     
 	public void SpawnIngredients(){
