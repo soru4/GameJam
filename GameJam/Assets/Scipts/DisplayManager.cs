@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class DisplayManager : MonoBehaviour
 {
     [SerializeField] Text displayText;
+    [SerializeField] CanvasGroup cg;
+    float targetTransparency = 0;
     float transparency = 0;
 
     // Update is called once per frame
@@ -21,8 +23,15 @@ public class DisplayManager : MonoBehaviour
             Ingredient ing = (Ingredient)Enum.Parse(typeof(Ingredient), ingName);
             int amount = GameManager.inst.IngredientAmount.ContainsKey(ing) ? GameManager.inst.IngredientAmount[ing] : 0;
             displayText.text = ingName + " - " + amount + "/" + ing.GetMax();
+            targetTransparency = 1;
         }
         else
-            displayText.text = "";
+        {
+            targetTransparency = 0;
+        }
+
+        transparency = Mathf.Lerp(transparency, targetTransparency, 0.15f);
+        cg.alpha = transparency;
+
     }
 }

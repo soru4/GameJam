@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets/Scipts/Dish.cs" />
     <Compile Include="Assets/Scipts/SpotlightManager.cs" />
+    <Compile Include="Assets/Scipts/CameraMovementManager.cs" />
     <Compile Include="Assets/Scipts/PhysicalIngredient.cs" />
     <Compile Include="Assets/Scipts/DisplayManager.cs" />
     <Compile Include="Assets/Scipts/DishManager.cs" />

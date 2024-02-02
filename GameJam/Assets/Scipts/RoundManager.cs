@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RoundManager : MonoBehaviour
 {
-    
+	public static RoundManager inst;
 	private int RoundTimer; // round is one dish
 	public Dish dishRef; 
 	
@@ -30,16 +30,20 @@ public class RoundManager : MonoBehaviour
 	};
 	[SerializeField] Transform ingredientParent;
 	[SerializeField] Vector3 spawnOffset;
-	[SerializeField] AnimationCurve smooth;
+	public AnimationCurve smooth;
 	[SerializeField] float slideDuration;
 	[SerializeField] float slideGap;
 	[SerializeField] float startAngle, finalAngle;
 
+	List<GameObject> instIngredients;
+
+	[SerializeField] AnimationCurve disappearanceSpeeds;
+	[SerializeField] GameObject smokeParticle, dustParticle;
+
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
-		
-		
+		inst = this;
 	}
     // Start is called before the first frame update
     void Start()
@@ -69,12 +73,17 @@ public class RoundManager : MonoBehaviour
 			dishRef = d;
 			SpawnIngredients();
         }
+
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+			ClearIngredients();
+        }
     }
     
 	public void SpawnIngredients(){
 
 		List<GameObject> ingredients = new List<GameObject>();
-		List<GameObject> instIngredients = new List<GameObject>();
+		instIngredients = new List<GameObject>();
 
 		// get actual ingredients
 		foreach(Ingredient x in dishRef.valuations.Keys){
@@ -97,15 +106,6 @@ public class RoundManager : MonoBehaviour
 				ingredients.Add(obj);
 		}
 
-		/*
-		string s = "";
-		foreach(GameObject ing in ingredients)
-        {
-			s += ing != null ? ing.name + " " : "null ";
-        }
-		print(s);
-		*/
-
         Shuffle(ref ingredients);
 
 		for(int i = 0; i < ingredients.Count; i++)
@@ -117,6 +117,12 @@ public class RoundManager : MonoBehaviour
 		StartCoroutine(ChainSlide(instIngredients, slideGap));
 
 	}
+
+	public void ClearIngredients()
+    {
+		Shuffle(ref instIngredients);
+		StartCoroutine(DisappearAll());
+    }
 
 	public static void Shuffle<T>(ref List<T> list)
 	{
@@ -159,5 +165,19 @@ public class RoundManager : MonoBehaviour
 			yield return null;
         }
 		transform.SetPositionAndRotation(endPos, endRot);
+    }
+
+	IEnumerator DisappearAll()
+    {
+		for(int i = 0; i < instIngredients.Count; i++)
+        {
+			yield return new WaitForSeconds(disappearanceSpeeds.Evaluate(i));
+			GameObject particle1 = Instantiate(smokeParticle, instIngredients[i].transform.position + new Vector3(0, 20, 0), Quaternion.identity);
+			GameObject particle2 = Instantiate(dustParticle, instIngredients[i].transform.position + new Vector3(0, 5, 0), Quaternion.identity);
+			Destroy(instIngredients[i]);
+			Destroy(particle1, 5f);
+			Destroy(particle2, 5f);
+		}
+		instIngredients.Clear();
     }
 }
