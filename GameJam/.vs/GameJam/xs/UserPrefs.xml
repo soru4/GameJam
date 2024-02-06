@@ -1,4 +1,5 @@
 ﻿<Properties StartupConfiguration="{35223D1A-0ABA-3E00-D682-2F913F0EB5DC}|">
+<<<<<<< Updated upstream
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scipts/PhysicalIngredient.cs">
     <Files>
       <File FileName="Assets/Scipts/PhysicalIngredient.cs" Line="34" Column="1" />
@@ -6,6 +7,19 @@
       <File FileName="Assets/Scipts/DishManager.cs" />
       <File FileName="Assets/Scipts/GameManager.cs" />
       <File FileName="Assets/Scipts/RoundManager.cs" Line="97" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scipts/ConveyerItems.cs">
+    <Files>
+      <File FileName="Assets/Scipts/PhysicalIngredient.cs" Line="15" Column="53" />
+      <File FileName="Assets/Scipts/Dish.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scipts/DishManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scipts/GameManager.cs" Line="64" Column="1" />
+      <File FileName="Assets/Scipts/RoundManager.cs" Line="120" Column="4" />
+      <File FileName="Assets/Scipts/SpotlightManager.cs" />
+      <File FileName="Assets/Scipts/DisplayManager.cs" Line="22" Column="70" />
+      <File FileName="Assets/Scipts/CameraMovementManager.cs" />
+      <File FileName="Assets/Scipts/ConveyerItems.cs" Line="19" Column="1" />
+>>>>>>> Stashed changes
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,7 +27,11 @@
           <Node name="GameJam" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scipts" expanded="True">
+<<<<<<< Updated upstream
                 <Node name="PhysicalIngredient.cs" selected="True" />
+=======
+                <Node name="ConveyerItems.cs" selected="True" />
+>>>>>>> Stashed changes
               </Node>
             </Node>
           </Node>
@@ -23,7 +41,11 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< Updated upstream
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7154c7af-b457-4df5-ad4d-6af8201a2a5a" />
+=======
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e9673efe-1db6-484a-87e8-b91af82ee0b9" />
+>>>>>>> Stashed changes
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -20243,8 +20243,13 @@
       "Annotation": "WriteText Library/Bee/artifacts/200b0aE.dag/Assembly-CSharp.rsp",
       "DisplayName": "Writing Assembly-CSharp.rsp",
       "ActionType": "WriteFile",
+<<<<<<< Updated upstream
       "PayloadOffset": 1521578,
       "PayloadLength": 33302,
+=======
+      "PayloadOffset": 1476339,
+      "PayloadLength": 33446,
+>>>>>>> Stashed changes
       "PayloadDebugContentSnippet": "-target:library\n-out:\"Library/",
       "Inputs": [],
       "Outputs": [
@@ -20256,7 +20261,11 @@
       "Annotation": "WriteText Library/Bee/artifacts/200b0aE.dag/Assembly-CSharp.rsp2",
       "DisplayName": "Writing Assembly-CSharp.rsp2",
       "ActionType": "WriteFile",
+<<<<<<< Updated upstream
       "PayloadOffset": 1554966,
+=======
+      "PayloadOffset": 1509871,
+>>>>>>> Stashed changes
       "PayloadLength": 0,
       "PayloadDebugContentSnippet": "",
       "Inputs": [],
@@ -20502,6 +20511,11 @@
         "Library/Bee/artifacts/200b0aE.dag/Unity.VSCode.Editor.ref.dll",
         "Library/Bee/artifacts/200b0aE.dag/UnityEditor.UI.ref.dll",
         "Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll",
+<<<<<<< Updated upstream
+=======
+        "Assets/Scipts/CameraMovementManager.cs",
+        "Assets/Scipts/ConveyerItems.cs",
+>>>>>>> Stashed changes
         "Assets/Scipts/Dish.cs",
         "Assets/Scipts/DishManager.cs",
         "Assets/Scipts/GameManager.cs",
@@ -20745,7 +20759,11 @@
       "Annotation": "WriteText Library/Bee/artifacts/200b0aE.dag/Assembly-CSharp.dll.mvfrm.rsp",
       "DisplayName": "Writing Assembly-CSharp.dll.mvfrm.rsp",
       "ActionType": "WriteFile",
+<<<<<<< Updated upstream
       "PayloadOffset": 1555061,
+=======
+      "PayloadOffset": 1509966,
+>>>>>>> Stashed changes
       "PayloadLength": 9439,
       "PayloadDebugContentSnippet": "Library/Bee/artifacts/mvdfrm/U",
       "Inputs": [],

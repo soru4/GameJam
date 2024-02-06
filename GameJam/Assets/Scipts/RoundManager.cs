@@ -7,11 +7,12 @@ public class RoundManager : MonoBehaviour
 {
     
 	private int RoundTimer; // round is one dish
-	public Dish dishRef; 
-	
+	public Dish dishRef;
+	public float beltSpeed = 0.2f;
 	public float elapsedTime = 0f;
 	[SerializeField] Transform[] positions;
-	[SerializeField] int[][] spawnPositions = new int[][] {
+	[SerializeField]
+	int[][] spawnPositions = new int[][] {
 		new int[] { // 4 ing
 			1, 3, 11, 13
 		},
@@ -33,6 +34,16 @@ public class RoundManager : MonoBehaviour
 	[SerializeField] AnimationCurve smooth;
 	[SerializeField] float slideDuration;
 	[SerializeField] float slideGap;
+<<<<<<< Updated upstream
+=======
+	[SerializeField] float startAngle, finalAngle;
+	bool dishInstantiated = false;
+
+	List<GameObject> instIngredients;
+
+	[SerializeField] AnimationCurve disappearanceSpeeds;
+	[SerializeField] GameObject smokeParticle, dustParticle;
+>>>>>>> Stashed changes
 
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
@@ -52,22 +63,77 @@ public class RoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	    switch(GameManager.inst.currentGameState){
-	    case GameState.ScrollPast:
-	    	if(elapsedTime >= GameManager.inst.ScrollPastTime ){
-	    		GameManager.inst.currentGameState = GameState.JustIngredients;
-	    		
-	    	}
-	    	break;
-	    }
+		elapsedTime += Time.deltaTime;
+		switch (GameManager.inst.currentGameState)
+		{
+			case GameState.ScrollPast:
+				if (elapsedTime >= GameManager.inst.ScrollPastTime - slideDuration)
+				{
+					if (!dishInstantiated)
+					{
+						Dish d = new Dish(new List<Ingredient> { Ingredient.Eggs, Ingredient.Cheese, Ingredient.Bread, Ingredient.Flour }, new Dictionary<Equipments, float> { }, 1);
+						dishRef = d;
+						SpawnIngredients();
+						dishInstantiated = true;
+					}
+				}
+				if (elapsedTime >= GameManager.inst.ScrollPastTime)
+				{
+					GameManager.inst.currentGameState = GameState.StopScroll;
+				}
+				break;
+			case GameState.StopScroll:
+				if (elapsedTime - GameManager.inst.ScrollPastTime >= GameManager.inst.CookingTime)
+				{
+					GameManager.inst.currentGameState = GameState.ContinueScroll;
+				}
+				break;
+			case GameState.ContinueScroll:
+				beltSpeed *= 1.01f;
+				if (beltSpeed >= 10)
+				{
+					beltSpeed = 10;
+				}
+				if (elapsedTime - (GameManager.inst.ScrollPastTime + GameManager.inst.CookingTime) >= 2f && GameManager.inst.ingredientsOnBelt.Count <= 0)
+				{
+					StartCoroutine(DisappearAll());
+					GameManager.inst.currentGameState = GameState.ShowScore;
+				}
+				break;
+			case GameState.ShowScore:
 
+				if (beltSpeed >= 0.1f)
+				{
+					beltSpeed *= 0.99f;
+				}
+				else if (beltSpeed <= 0.1f)
+				{
+					beltSpeed = -MathF.Abs(beltSpeed);
+					if (beltSpeed < 0)
+					{
+						beltSpeed *= 1.006f;
+					}
 
-        if (Input.GetKeyDown(KeyCode.Space))
+				}
+				if (beltSpeed <= -0.75)
+				{
+					beltSpeed = -0.75f;
+				}
+				break;
+		}
+
+		/*
+		if (Input.GetKeyDown(KeyCode.Space))
         {
 			Dish d = new Dish(new Dictionary<Ingredient, (float, float)> { { Ingredient.Eggs, (1, 1) }, { Ingredient.Cheese, (1, 1) }, { Ingredient.Bread, (1, 1) }, { Ingredient.Flour, (1, 1) } }, new Dictionary<Equipments, float> { }, 1);
 			dishRef = d;
 			SpawnIngredients();
         }
+<<<<<<< Updated upstream
+=======
+		*/
+
+>>>>>>> Stashed changes
     }
     
 	public void SpawnIngredients(){
@@ -156,4 +222,22 @@ public class RoundManager : MonoBehaviour
         }
 		transform.SetPositionAndRotation(endPos, endRot);
     }
+<<<<<<< Updated upstream
+=======
+
+	IEnumerator DisappearAll()
+    {
+		for(int i = 0; i < instIngredients.Count; i++)
+        {
+			yield return new WaitForSeconds(disappearanceSpeeds.Evaluate(i));
+			GameObject particle1 = Instantiate(smokeParticle, instIngredients[i].transform.position + new Vector3(0, 5, 0), Quaternion.Euler(-90,0,0));
+			GameObject particle2 = Instantiate(dustParticle, instIngredients[i].transform.position + new Vector3(0, 5, 0), Quaternion.identity);
+			Destroy(instIngredients[i]);
+			Destroy(particle1, 5f);
+			Destroy(particle2, 5f);
+		}
+		instIngredients.Clear();
+    }
+>>>>>>> Stashed changes
 }
+
