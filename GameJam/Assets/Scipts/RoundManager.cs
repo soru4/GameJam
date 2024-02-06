@@ -8,7 +8,7 @@ public class RoundManager : MonoBehaviour
 	public static RoundManager inst;
 	private int RoundTimer; // round is one dish
 	public Dish dishRef;
-	public Animator beltAnimator;
+	public BeltManager beltAnimator;
 	public float beltSpeed = 0.2f;
 	public float elapsedTime = 0f;
 	[SerializeField] Transform[] positions;
@@ -44,7 +44,8 @@ public class RoundManager : MonoBehaviour
 	}
     // Start is called before the first frame update
     void Start()
-    {
+	{
+		beltAnimator = beltAnimator.GetComponent<BeltManager>();
 		// we want to start with starting the animcontroller
 		RoundTimer += GameManager.inst.CookingTime + GameManager.inst.ScrollPastTime;
 		GameManager.inst.currentGameState = GameState.ScrollPast;
@@ -92,14 +93,32 @@ public class RoundManager : MonoBehaviour
 				break;
 			case GameState.ContinueScroll:
 				beltSpeed *=1.01f;
+				if(beltSpeed >= 10){
+					beltSpeed = 10;
+				}
 				beltAnimator.speed = beltSpeed ;
-				if (elapsedTime - (GameManager.inst.ScrollPastTime + GameManager.inst.CookingTime) >= 2f)
+				if (elapsedTime - (GameManager.inst.ScrollPastTime + GameManager.inst.CookingTime) >= 2f && GameManager.inst.ingredientsOnBelt.Count <= 0)
 				{
 					GameManager.inst.currentGameState = GameState.ShowScore;
 
 				}
 				break;
-
+			case GameState.ShowScore:
+			
+				if(beltSpeed >= 0.1f){
+					beltSpeed *= 0.99f;
+				}else if(beltSpeed <= 0.1f){
+					beltSpeed = - MathF.Abs(beltSpeed);
+					if(beltSpeed < 0 ){
+						beltSpeed *= 1.006f;
+					}
+					
+				}
+				if(beltSpeed <= -0.5){
+					beltSpeed = -0.5f;
+				}
+				beltAnimator.speed = beltSpeed;
+				break;
 		}
 
 

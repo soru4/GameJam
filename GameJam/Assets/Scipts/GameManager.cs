@@ -43,15 +43,19 @@ public class GameManager : MonoBehaviour
         {
         	TotalNumOfIngredients += amount;
         	if(amount >= 1){
-		        GameObject x = Instantiate(physicalIngredient.gameObject, beltCenter.position + new Vector3((-21 * TotalNumOfIngredients) - 120,0,0)  , Quaternion.identity);
+		        GameObject x = Instantiate(physicalIngredient.gameObject, beltSpawnPoint.transform.position + new Vector3((-21 * TotalNumOfIngredients) - 110,0,0)  , Quaternion.identity);
 		        x.transform.localScale = new Vector3(9,9, 9);
 		        x.GetComponent<PhysicalIngredient>().onBelt = true;
 		        ingredientsOnBelt.Add(x);
         	}else if(amount <= -1){
-        		foreach(GameObject x in ingredientsOnBelt){
+        		for(int i = 0; i < ingredientsOnBelt.Count; i++){
+        			GameObject x = ingredientsOnBelt[i];
         			if(x.GetComponent<PhysicalIngredient>().ingredientType == physicalIngredient.ingredientType){
         				ingredientsOnBelt.Remove(x);
+        				
+        				i--;
         				Destroy(x);
+        				break;
         			}
         		}
         	}

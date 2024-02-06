@@ -29,6 +29,11 @@ public class PhysicalIngredient : MonoBehaviour
 	    if(onBelt && (GameManager.inst.currentGameState == GameState.StopScroll || GameManager.inst.currentGameState == GameState.ContinueScroll || GameManager.inst.currentGameState == GameState.ShowScore)){
 	    	transform.position += new Vector3(RoundManager.inst.beltSpeed * 20 * Time.deltaTime ,0,0);
 	    }
+	    if(transform.position.x >= 270 && onBelt){
+	    	
+	    	GameManager.inst.ingredientsOnBelt.Remove(gameObject);
+	    	Destroy(gameObject);
+	    }
     }
 
     private void OnMouseOver()

@@ -59,10 +59,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scipts/Dish.cs" />
+    <Compile Include="Assets/Scipts/BeltManager.cs" />
     <Compile Include="Assets/Scipts/SpotlightManager.cs" />
     <Compile Include="Assets/Scipts/PhysicalIngredient.cs" />
     <Compile Include="Assets/Scipts/DishManager.cs" />
     <Compile Include="Assets/Scipts/GameManager.cs" />
+    <Compile Include="Assets/Scipts/ConveyerItems.cs" />
     <Compile Include="Assets/Scipts/RoundManager.cs" />
   </ItemGroup>
   <ItemGroup>
