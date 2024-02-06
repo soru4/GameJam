@@ -114,8 +114,8 @@ public class RoundManager : MonoBehaviour
 					}
 					
 				}
-				if(beltSpeed <= -0.5){
-					beltSpeed = -0.5f;
+				if(beltSpeed <= -0.75){
+					beltSpeed = -0.75f;
 				}
 				beltAnimator.speed = beltSpeed;
 				break;

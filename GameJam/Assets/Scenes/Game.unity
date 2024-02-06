@@ -920,11 +920,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 659782491}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!4 &476710670 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1910684245700903472, guid: 4ee393d241fee48e8809711f7f7954e8, type: 3}
-  m_PrefabInstance: {fileID: 7688302417722294095}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &490768879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2122,12 +2117,11 @@ MonoBehaviour:
   beltSpawnPoint: {fileID: 138115931}
   ScrollPastTime: 5
   CookingTime: 10
-  levelNumber: 3
+  levelNumber: 0
   ingredientsPerLevel: 0400000006000000090000000b0000000d000000
   roundNumber: 0
   ingredientsOnBelt: []
   TotalNumOfIngredients: 0
-  beltCenter: {fileID: 476710670}
 --- !u!4 &1604978065
 Transform:
   m_ObjectHideFlags: 0
