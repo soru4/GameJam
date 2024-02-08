@@ -17,12 +17,27 @@ public class ConveyerItems : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-	    if(transform.position.x >= endPosition.x){
+	void Update()
+	{
+		
+		if((transform.position.x >= endPosition.x  && beltManager.GetComponent<BeltManager>().speed > 0)|| (transform.position.x <= endPosition.x && beltManager.GetComponent<BeltManager>().speed < 0)){
+			
 	    	transform.position = startPosition;
 	    }
 	    
 	    transform.position += new Vector3 (distanceModify * beltManager.GetComponent<BeltManager>().speed * Time.deltaTime, 0,0);
-    }
+	}
+	void UpdateEndPos(){
+		
+		
+		if(beltManager.GetComponent<BeltManager>().speed > 0){
+			endPosition = startPosition;
+			endPosition.x += distanceModify;
+		}else{
+			endPosition = startPosition;
+			endPosition.x -= distanceModify;
+		}
+		
+	}
+	
 }

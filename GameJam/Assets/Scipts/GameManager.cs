@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
 	public Dictionary<Ingredient, PhysicalIngredient> physicalIngredientMap = new Dictionary<Ingredient, PhysicalIngredient>();
 	public List<GameObject> ingredientsOnBelt;
 	public int TotalNumOfIngredients = 0;
-
+	public List<GameObject> currentFinishedDishesOnScreen;
+	public int totalSpawnedDished = 0;
     private void Awake()
     {
         inst = this;

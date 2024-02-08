@@ -35,6 +35,8 @@ public class RoundManager : MonoBehaviour
 	[SerializeField] float slideDuration;
 	[SerializeField] float slideGap;
 	[SerializeField] float startAngle, finalAngle;
+	[SerializeField] GameObject tempDishForTesting; //DELETE THIS LATER!!!
+	int stopScrollStartTime = 0;
 	bool dishInstantiated = false;
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
@@ -65,8 +67,11 @@ public class RoundManager : MonoBehaviour
 		elapsedTime += Time.deltaTime;
 		switch (GameManager.inst.currentGameState)
 		{
-			case GameState.ScrollPast:
+		case GameState.ScrollPast:
+			beltSpeed = 1f;
 				beltAnimator.speed = beltSpeed;
+			if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0 && GameManager.inst.totalSpawnedDished < 1)
+					SpawnFinishedDish(GameManager.inst.currentGameState);
 				if(elapsedTime >= GameManager.inst.ScrollPastTime - slideDuration)
                 {
 					if (!dishInstantiated)
@@ -77,15 +82,17 @@ public class RoundManager : MonoBehaviour
 						dishInstantiated = true;
 					}
 				}
-				if (elapsedTime >= GameManager.inst.ScrollPastTime)
+				if (GameManager.inst.currentFinishedDishesOnScreen.Count <=0)
 				{
 					GameManager.inst.currentGameState = GameState.StopScroll;
 					beltAnimator.speed = beltSpeed;
 				}
 				break;
-			case GameState.StopScroll:
+		case GameState.StopScroll:
+			if(stopScrollStartTime == 0 )
+				stopScrollStartTime = (int)Time.time;
 				beltAnimator.speed = beltSpeed;
-				if (elapsedTime - GameManager.inst.ScrollPastTime >= GameManager.inst.CookingTime)
+			if (stopScrollStartTime >= (Time.time -stopScrollStartTime) + GameManager.inst.CookingTime +2)
 				{
 					beltAnimator.speed = beltSpeed;
 					GameManager.inst.currentGameState = GameState.ContinueScroll;
@@ -97,7 +104,7 @@ public class RoundManager : MonoBehaviour
 					beltSpeed = 10;
 				}
 				beltAnimator.speed = beltSpeed ;
-				if (elapsedTime - (GameManager.inst.ScrollPastTime + GameManager.inst.CookingTime) >= 2f && GameManager.inst.ingredientsOnBelt.Count <= 0)
+				if ( GameManager.inst.ingredientsOnBelt.Count <= 0)
 				{
 					GameManager.inst.currentGameState = GameState.ShowScore;
 
@@ -116,6 +123,8 @@ public class RoundManager : MonoBehaviour
 				}
 				if(beltSpeed <= -0.75){
 					beltSpeed = -0.75f;
+					if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0)
+						SpawnFinishedDish(GameManager.inst.currentGameState);
 				}
 				beltAnimator.speed = beltSpeed;
 				break;
@@ -169,7 +178,18 @@ public class RoundManager : MonoBehaviour
 		StartCoroutine(ChainSlide(instIngredients, slideGap));
 
 	}
-
+	public void SpawnFinishedDish(GameState state){
+		GameManager.inst.totalSpawnedDished ++;
+		if(state == GameState.ScrollPast){
+			GameObject x = Instantiate(tempDishForTesting, new Vector3(-130f,-9.78f,18.86f), Quaternion.identity);
+				x.AddComponent<PhysicalDish>().onBelt = true;
+			GameManager.inst.currentFinishedDishesOnScreen.Add(x);
+		}else if(state == GameState.ShowScore){
+			GameObject x = Instantiate(tempDishForTesting, new Vector3(230,-9.78f,18.86f), Quaternion.identity);
+			x.AddComponent<PhysicalDish>().onBelt = true;
+			GameManager.inst.currentFinishedDishesOnScreen.Add(x);
+		}
+	}
 	public static void Shuffle<T>(ref List<T> list)
 	{
 		System.Random rng = new System.Random();
