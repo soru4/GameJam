@@ -8,11 +8,11 @@ public class RoundManager : MonoBehaviour
 	public static RoundManager inst;
 	private int RoundTimer; // round is one dish
 	public Dish dishRef;
-	public BeltManager beltAnimator;
 	public float beltSpeed = 0.2f;
 	public float elapsedTime = 0f;
 	[SerializeField] Transform[] positions;
-	[SerializeField] int[][] spawnPositions = new int[][] {
+	[SerializeField]
+	int[][] spawnPositions = new int[][] {
 		new int[] { // 4 ing
 			0, 1, 2, 3
 		},
@@ -31,47 +31,43 @@ public class RoundManager : MonoBehaviour
 	};
 	[SerializeField] Transform ingredientParent;
 	[SerializeField] Vector3 spawnOffset;
-	[SerializeField] AnimationCurve smooth;
+	public AnimationCurve smooth;
 	[SerializeField] float slideDuration;
 	[SerializeField] float slideGap;
 	[SerializeField] float startAngle, finalAngle;
 	bool dishInstantiated = false;
+
+	List<GameObject> instIngredients;
+
+	[SerializeField] AnimationCurve disappearanceSpeeds;
+	[SerializeField] GameObject smokeParticle, dustParticle;
+
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
 		inst = this;
-		
 	}
     // Start is called before the first frame update
     void Start()
-	{
-		beltAnimator = beltAnimator.GetComponent<BeltManager>();
+    {
 		// we want to start with starting the animcontroller
 		RoundTimer += GameManager.inst.CookingTime + GameManager.inst.ScrollPastTime;
 		GameManager.inst.currentGameState = GameState.ScrollPast;
 	    //SpawnIngredients();
-   
-		// we want to start with starting the animcontroller
+    }
 
-		RoundTimer = GameManager.inst.CookingTime + GameManager.inst.ScrollPastTime;
-		GameManager.inst.currentGameState = GameState.ScrollPast;
-		//SpawnIngredients();
-		elapsedTime = 0;
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
+    // Update is called once per frame
+    void Update()
+    {
 		elapsedTime += Time.deltaTime;
 		switch (GameManager.inst.currentGameState)
 		{
 			case GameState.ScrollPast:
-				beltAnimator.speed = beltSpeed;
-				if(elapsedTime >= GameManager.inst.ScrollPastTime - slideDuration)
-                {
+				if (elapsedTime >= GameManager.inst.ScrollPastTime - slideDuration)
+				{
 					if (!dishInstantiated)
 					{
-						Dish d = new Dish(new List<Ingredient> { Ingredient.Eggs, Ingredient.Cheese, Ingredient.Bread, Ingredient.Flour }, new Dictionary<Equipments, float> { }, 1);
+						Dish d = new Dish(new List<Ingredient> { Ingredient.Eggs, Ingredient.Avocados, Ingredient.Bread, Ingredient.Flour }, new Dictionary<Equipments, float> { }, 1);
 						dishRef = d;
 						SpawnIngredients();
 						dishInstantiated = true;
@@ -80,59 +76,67 @@ public class RoundManager : MonoBehaviour
 				if (elapsedTime >= GameManager.inst.ScrollPastTime)
 				{
 					GameManager.inst.currentGameState = GameState.StopScroll;
-					beltAnimator.speed = beltSpeed;
 				}
 				break;
 			case GameState.StopScroll:
-				beltAnimator.speed = beltSpeed;
 				if (elapsedTime - GameManager.inst.ScrollPastTime >= GameManager.inst.CookingTime)
 				{
-					beltAnimator.speed = beltSpeed;
 					GameManager.inst.currentGameState = GameState.ContinueScroll;
 				}
 				break;
 			case GameState.ContinueScroll:
-				beltSpeed *=1.01f;
-				if(beltSpeed >= 10){
+				beltSpeed *= 1.01f;
+				if (beltSpeed >= 10)
+				{
 					beltSpeed = 10;
 				}
-				beltAnimator.speed = beltSpeed ;
 				if (elapsedTime - (GameManager.inst.ScrollPastTime + GameManager.inst.CookingTime) >= 2f && GameManager.inst.ingredientsOnBelt.Count <= 0)
 				{
+					StartCoroutine(DisappearAll());
 					GameManager.inst.currentGameState = GameState.ShowScore;
-
 				}
 				break;
 			case GameState.ShowScore:
-			
-				if(beltSpeed >= 0.1f){
+
+				if (beltSpeed >= 0.1f)
+				{
 					beltSpeed *= 0.99f;
-				}else if(beltSpeed <= 0.1f){
-					beltSpeed = - MathF.Abs(beltSpeed);
-					if(beltSpeed < 0 ){
+				}
+				else if (beltSpeed <= 0.1f)
+				{
+					beltSpeed = -MathF.Abs(beltSpeed);
+					if (beltSpeed < 0)
+					{
 						beltSpeed *= 1.006f;
 					}
-					
+
 				}
-				if(beltSpeed <= -0.75){
+				if (beltSpeed <= -0.75)
+				{
 					beltSpeed = -0.75f;
 				}
-				beltAnimator.speed = beltSpeed;
 				break;
 		}
 
+		/*
+		if (Input.GetKeyDown(KeyCode.Space))
+        {
+			Dish d = new Dish(new List<Ingredient> { Ingredient.Eggs, Ingredient.Cheese, Ingredient.Bread, Ingredient.Flour }, new Dictionary<Equipments, float> { }, 1);
+			dishRef = d;
+			SpawnIngredients();
+        }
+		*/
 
-		
     }
     
 	public void SpawnIngredients(){
 
 		List<GameObject> ingredients = new List<GameObject>();
-		List<GameObject> instIngredients = new List<GameObject>();
+		instIngredients = new List<GameObject>();
 
 		// get actual ingredients
 		foreach(Ingredient x in dishRef.valuations.Keys){
-			ingredients.Add(Resources.Load("Prefabs/" + x.ToString() + " Plate") as GameObject);
+			ingredients.Add(Resources.Load("Prefabs/Ingredients/" + x.ToString().Replace("_", " ")) as GameObject);
 		}
 
 		int maxIngredientsLevel = GameManager.inst.ingredientsPerLevel[GameManager.inst.levelNumber];
@@ -143,20 +147,13 @@ public class RoundManager : MonoBehaviour
         {
 			//print(Enum.GetNames(typeof(Ingredient)).ToString() + "   " + );
 			Ingredient x = (Ingredient)UnityEngine.Random.Range(0, ingredientCount);
-			GameObject obj = Resources.Load("Prefabs/" + x.ToString() + " Plate") as GameObject;
+			GameObject obj = Resources.Load("Prefabs/Ingredients/" + x.ToString().Replace("_", " ")) as GameObject;
 			//print(x.ToString() + " " + obj.name);
 			if (ingredients.Contains(obj))
 				i--;
 			else
 				ingredients.Add(obj);
 		}
-
-		string s = "";
-		foreach(GameObject ing in ingredients)
-        {
-			s += ing != null ? ing.name + " " : "null ";
-        }
-		//print(s);
 
         Shuffle(ref ingredients);
 
@@ -169,6 +166,12 @@ public class RoundManager : MonoBehaviour
 		StartCoroutine(ChainSlide(instIngredients, slideGap));
 
 	}
+
+	public void ClearIngredients()
+    {
+		Shuffle(ref instIngredients);
+		StartCoroutine(DisappearAll());
+    }
 
 	public static void Shuffle<T>(ref List<T> list)
 	{
@@ -212,4 +215,20 @@ public class RoundManager : MonoBehaviour
         }
 		transform.SetPositionAndRotation(endPos, endRot);
     }
+
+	IEnumerator DisappearAll()
+    {
+		Shuffle(ref instIngredients);
+		for(int i = 0; i < instIngredients.Count; i++)
+        {
+			GameObject particle1 = Instantiate(smokeParticle, instIngredients[i].transform.position + new Vector3(0, 0, 0), Quaternion.Euler(-90,0,0));
+			GameObject particle2 = Instantiate(dustParticle, instIngredients[i].transform.position + new Vector3(0, 5, 0), Quaternion.identity);
+			Destroy(instIngredients[i]);
+			Destroy(particle1, 5f);
+			Destroy(particle2, 5f);
+			yield return new WaitForSeconds(disappearanceSpeeds.Evaluate(i));
+		}
+		instIngredients.Clear();
+    }
 }
+

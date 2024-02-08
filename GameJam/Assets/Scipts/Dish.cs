@@ -26,9 +26,9 @@ public class Dish
 		
 		foreach (Ingredient i in ingredients)
 		{
-			float min = i.GetMinCount(), max = i.GetMaxCount();
-			float mean = Random.Range(min, max);
-			float std = (min + max) * 0.25f;
+			float max = i.GetMax();
+			float mean = Random.Range(0, max);
+			float std = max * 0.25f;
 			valuations.Add(i, (mean, std));
 		}
 
@@ -64,17 +64,18 @@ public class Dish
 
 public enum Ingredient
 {
-	Avocado, Bread, Cheese, Chocolate, Eggs, Fish, Flour, Lemon, Lettuce, Seasoning, Tomato
+	Avocados, Beef, Bread, Broth, Buns, Cheese, Chocolate, Dough, Eggs, Fish_Fillets, Flour, Grape_Juice, Grapes, Hot_Dog_Buns, Ice_Cream_Cones,
+	Ketchup, Lemons, Lettuce, Milk, Mustard, Pizza_Sauce, Rice_and_Seaweed, Sausages, Seasoning, Soy_Sauce, Sprinkles, Stew_Vegetables, Strawberries,
+	Strawberry_Syrup, Sugar, Taco_Meat, Taco_Sauce, Tomatoes, Toppings, Tortillas, Vegetables, Whipped_Cream
 }
 
 public static class IngredientMethods
 {
-	public static Dictionary<Ingredient, (float, float)?> ingredientToMinMax = new Dictionary<Ingredient, (float, float)?>();
+	public static Dictionary<Ingredient, int> ingredientMax = new Dictionary<Ingredient, int>();
 	public static Dictionary<Ingredient, float> ingredientCosts = new Dictionary<Ingredient, float>();
 
-	public static float GetMinCount(this Ingredient ing) => (ingredientToMinMax[ing] ?? (0f, 0f)).Item1;
-	public static float GetMaxCount(this Ingredient ing) => (ingredientToMinMax[ing] ?? (0f, 0f)).Item2;
-	public static void SetMinMax(this Ingredient ing, float min, float max) => ingredientToMinMax[ing] = (min, max);
+	public static void SetMax(this Ingredient ing, int max) => ingredientMax[ing] = max;
+	public static int GetMax(this Ingredient ing) => ingredientMax[ing];
 
 	public static void SetCost(this Ingredient ing, float cost) => ingredientCosts[ing] = cost;
 	public static float GetCost(this Ingredient ing) => ingredientCosts[ing];
