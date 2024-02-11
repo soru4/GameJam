@@ -36,7 +36,7 @@ public class RoundManager : MonoBehaviour
 	[SerializeField] float slideGap;
 	[SerializeField] float startAngle, finalAngle;
 	[SerializeField] GameObject tempDishForTesting; //DELETE THIS LATER!!!
-	int stopScrollStartTime = 0;
+	public int stopScrollStartTime = 0;
 	bool dishInstantiated = false;
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
@@ -68,8 +68,8 @@ public class RoundManager : MonoBehaviour
 		switch (GameManager.inst.currentGameState)
 		{
 		case GameState.ScrollPast:
-			beltSpeed = 1f;
-				beltAnimator.speed = beltSpeed;
+			beltSpeed = 3f;
+			beltAnimator.SetSpeedColective(beltSpeed);
 			if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0 && GameManager.inst.totalSpawnedDished < 1)
 					SpawnFinishedDish(GameManager.inst.currentGameState);
 				if(elapsedTime >= GameManager.inst.ScrollPastTime - slideDuration)
@@ -85,25 +85,30 @@ public class RoundManager : MonoBehaviour
 				if (GameManager.inst.currentFinishedDishesOnScreen.Count <=0)
 				{
 					GameManager.inst.currentGameState = GameState.StopScroll;
-					beltAnimator.speed = beltSpeed;
+					beltSpeed = 1f;
+					beltAnimator.SetSpeedColective(beltSpeed);
 				}
-				break;
+			break;
+				
 		case GameState.StopScroll:
 			if(stopScrollStartTime == 0 )
 				stopScrollStartTime = (int)Time.time;
-				beltAnimator.speed = beltSpeed;
-			if (stopScrollStartTime >= (Time.time -stopScrollStartTime) + GameManager.inst.CookingTime +2)
+				beltAnimator.SetSpeedColective(beltSpeed);
+			if (Time.time - stopScrollStartTime >= GameManager.inst.CookingTime)
 				{
-					beltAnimator.speed = beltSpeed;
-					GameManager.inst.currentGameState = GameState.ContinueScroll;
+					beltAnimator.SetSpeedColective(beltSpeed);
+				GameManager.inst.currentGameState = GameState.ContinueScroll;
 				}
-				break;
+			break;
+				
 			case GameState.ContinueScroll:
 				beltSpeed *=1.01f;
+				beltAnimator.SetSpeedColective(beltSpeed);
 				if(beltSpeed >= 10){
 					beltSpeed = 10;
+					beltAnimator.SetSpeedColective(beltSpeed);
 				}
-				beltAnimator.speed = beltSpeed ;
+				beltAnimator.SetSpeedColective(beltSpeed);
 				if ( GameManager.inst.ingredientsOnBelt.Count <= 0)
 				{
 					GameManager.inst.currentGameState = GameState.ShowScore;
@@ -114,19 +119,23 @@ public class RoundManager : MonoBehaviour
 			
 				if(beltSpeed >= 0.1f){
 					beltSpeed *= 0.99f;
+					beltAnimator.SetSpeedColective(beltSpeed);
 				}else if(beltSpeed <= 0.1f){
 					beltSpeed = - MathF.Abs(beltSpeed);
+					beltAnimator.SetSpeedColective(beltSpeed);
 					if(beltSpeed < 0 ){
 						beltSpeed *= 1.006f;
+						beltAnimator.SetSpeedColective(beltSpeed);
 					}
 					
 				}
 				if(beltSpeed <= -0.75){
 					beltSpeed = -0.75f;
+					beltAnimator.SetSpeedColective(beltSpeed);
 					if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0)
 						SpawnFinishedDish(GameManager.inst.currentGameState);
 				}
-				beltAnimator.speed = beltSpeed;
+				beltAnimator.SetSpeedColective(beltSpeed);
 				break;
 		}
 
