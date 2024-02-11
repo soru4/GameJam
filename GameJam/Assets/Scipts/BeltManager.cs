@@ -17,7 +17,7 @@ public class BeltManager : MonoBehaviour
 			i.SetSpeed( speed);
 		}
 		
-		CheckSpacing();
+		CheckSpacing(speed);
 	}
 	public GameObject[] OrderObjectsByPos(){
 		List<GameObject> s = new List<GameObject>();
@@ -32,7 +32,8 @@ public class BeltManager : MonoBehaviour
 		
 		return z;
 	}
-	public void CheckSpacing(){
+	public void CheckSpacing(float speed){
+		float startTime = Time.time;
 		List<GameObject> ordered = OrderObjectsByPos().ToList();
 		
 		GameObject previous = ordered[0];
@@ -45,8 +46,8 @@ public class BeltManager : MonoBehaviour
 			
 				
 				
-				if(Mathf.Abs(x) >= 20.7 || Mathf.Abs(x) <= 18.9){
-					ordered[i].transform.position = new Vector3(( previous.transform.position.x + 20f), ordered[i].transform.position.y, ordered[i].transform.position.z);
+			if(Mathf.Abs(x) >= 20.1 || Mathf.Abs(x) <= 19.8){
+					ordered[i].transform.position = new Vector3(( previous.transform.position.x + 20f + ((20 * speed) * (Time.time - startTime))), ordered[i].transform.position.y, ordered[i].transform.position.z);
 				}
 				
 				
