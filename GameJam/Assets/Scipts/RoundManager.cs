@@ -69,7 +69,7 @@ public class RoundManager : MonoBehaviour
 		{
 		case GameState.ScrollPast:
 			beltSpeed = 3f;
-			beltAnimator.SetSpeedColective(beltSpeed);
+			
 			if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0 && GameManager.inst.totalSpawnedDished < 1)
 					SpawnFinishedDish(GameManager.inst.currentGameState);
 				if(elapsedTime >= GameManager.inst.ScrollPastTime - slideDuration)
@@ -85,30 +85,31 @@ public class RoundManager : MonoBehaviour
 				if (GameManager.inst.currentFinishedDishesOnScreen.Count <=0)
 				{
 					GameManager.inst.currentGameState = GameState.StopScroll;
-					beltSpeed = 1f;
-					beltAnimator.SetSpeedColective(beltSpeed);
+					beltSpeed *= 0.99f;
+					
 				}
 			break;
 				
 		case GameState.StopScroll:
+			if(beltSpeed > 1){
+				beltSpeed *= 0.99f;
+			}
 			if(stopScrollStartTime == 0 )
 				stopScrollStartTime = (int)Time.time;
-				beltAnimator.SetSpeedColective(beltSpeed);
+				
 			if (Time.time - stopScrollStartTime >= GameManager.inst.CookingTime)
 				{
-					beltAnimator.SetSpeedColective(beltSpeed);
+				
 				GameManager.inst.currentGameState = GameState.ContinueScroll;
 				}
 			break;
 				
 			case GameState.ContinueScroll:
 				beltSpeed *=1.01f;
-				beltAnimator.SetSpeedColective(beltSpeed);
+				
 				if(beltSpeed >= 10){
 					beltSpeed = 10;
-					beltAnimator.SetSpeedColective(beltSpeed);
 				}
-				beltAnimator.SetSpeedColective(beltSpeed);
 				if ( GameManager.inst.ingredientsOnBelt.Count <= 0)
 				{
 					GameManager.inst.currentGameState = GameState.ShowScore;
@@ -119,27 +120,23 @@ public class RoundManager : MonoBehaviour
 			
 				if(beltSpeed >= 0.1f){
 					beltSpeed *= 0.99f;
-					beltAnimator.SetSpeedColective(beltSpeed);
 				}else if(beltSpeed <= 0.1f){
 					beltSpeed = - MathF.Abs(beltSpeed);
-					beltAnimator.SetSpeedColective(beltSpeed);
 					if(beltSpeed < 0 ){
 						beltSpeed *= 1.006f;
-						beltAnimator.SetSpeedColective(beltSpeed);
 					}
 					
 				}
-				if(beltSpeed <= -0.75){
-					beltSpeed = -0.75f;
-					beltAnimator.SetSpeedColective(beltSpeed);
+				if(beltSpeed <= -1.5){
+					beltSpeed = -1.5f;
 					if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0)
 						SpawnFinishedDish(GameManager.inst.currentGameState);
 				}
-				beltAnimator.SetSpeedColective(beltSpeed);
+				
 				break;
 		}
 
-
+		beltAnimator.SetSpeedColective(beltSpeed);
 		
     }
     
