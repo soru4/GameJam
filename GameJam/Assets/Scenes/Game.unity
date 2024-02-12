@@ -746,7 +746,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: new text!!!!!
 --- !u!222 &630797553
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2435,6 +2435,14 @@ PrefabInstance:
     - target: {fileID: 2754781550300562432, guid: 4ee393d241fee48e8809711f7f7954e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911851244256809201, guid: 4ee393d241fee48e8809711f7f7954e8, type: 3}
+      propertyPath: m_Intensity
+      value: 13.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911851244256809201, guid: 4ee393d241fee48e8809711f7f7954e8, type: 3}
+      propertyPath: m_SpotAngle
+      value: 23.2
       objectReference: {fileID: 0}
     - target: {fileID: 8574452135120743454, guid: 4ee393d241fee48e8809711f7f7954e8, type: 3}
       propertyPath: m_LocalPosition.x
