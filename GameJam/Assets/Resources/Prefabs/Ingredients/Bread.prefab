@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7503430999973711821}
-  - component: {fileID: -7223340690151314157}
   - component: {fileID: 484939576357845279}
+  - component: {fileID: 8415398567942611976}
   m_Layer: 6
   m_Name: Bread
   m_TagString: Untagged
@@ -34,8 +34,23 @@ Transform:
   - {fileID: 5662522327569216918}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!135 &-7223340690151314157
-SphereCollider:
+--- !u!114 &484939576357845279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555836205752997082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientType: 2
+  onBelt: 0
+--- !u!65 &8415398567942611976
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -53,23 +68,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.2037747
-  m_Center: {x: 0, y: 0.7037747, z: 0}
---- !u!114 &484939576357845279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5555836205752997082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientType: 2
-  onBelt: 0
+  m_Size: {x: 2.4391131, y: 0.65379596, z: 2.2250714}
+  m_Center: {x: -0, y: 0.32689798, z: -0}
 --- !u!1001 &475917797593009224
 PrefabInstance:
   m_ObjectHideFlags: 0

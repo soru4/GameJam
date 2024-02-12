@@ -94,8 +94,8 @@ GameObject:
   - component: {fileID: 8828458834448671562}
   - component: {fileID: 1693165745001157729}
   - component: {fileID: 7285292859905425947}
-  - component: {fileID: -6406783601845467881}
   - component: {fileID: 1185675711945739577}
+  - component: {fileID: -7687477465647367142}
   m_Layer: 6
   m_Name: Hot Dog Buns
   m_TagString: Untagged
@@ -171,8 +171,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &-6406783601845467881
-SphereCollider:
+--- !u!114 &1185675711945739577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2813272008972178492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientType: 0
+  onBelt: 0
+--- !u!65 &-7687477465647367142
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -190,23 +205,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.44588697
-  m_Center: {x: 0, y: 0.044999994, z: 0}
---- !u!114 &1185675711945739577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2813272008972178492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientType: 0
-  onBelt: 0
+  m_Size: {x: 0.9756452, y: 0.12007084, z: 0.8900284}
+  m_Center: {x: -0, y: 0.0600354, z: -0}
 --- !u!1 &3054261689947305890
 GameObject:
   m_ObjectHideFlags: 0

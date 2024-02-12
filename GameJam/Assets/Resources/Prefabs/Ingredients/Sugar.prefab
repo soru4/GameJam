@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 355157677306327714}
   - component: {fileID: 9048015679157054072}
   - component: {fileID: 3775435145141957582}
-  - component: {fileID: 6735879692064310563}
   - component: {fileID: 6833248209402652803}
+  - component: {fileID: 7870368567452417459}
   m_Layer: 6
   m_Name: Sugar
   m_TagString: Untagged
@@ -86,8 +86,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6735879692064310563
-SphereCollider:
+--- !u!114 &6833248209402652803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138623867482947423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientType: 0
+  onBelt: 0
+--- !u!65 &7870368567452417459
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,23 +120,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.44588697
-  m_Center: {x: 0, y: 0.044999994, z: 0}
---- !u!114 &6833248209402652803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138623867482947423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientType: 0
-  onBelt: 0
+  m_Size: {x: 0.891774, y: 0.28440166, z: 0.891774}
+  m_Center: {x: -0, y: 0.14220083, z: -0}
 --- !u!1001 &8358850599452823589
 PrefabInstance:
   m_ObjectHideFlags: 0

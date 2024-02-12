@@ -516,8 +516,8 @@ GameObject:
   - component: {fileID: 5467679787154971737}
   - component: {fileID: 207288620780491515}
   - component: {fileID: 4392799354833210926}
-  - component: {fileID: -2153700216693074140}
   - component: {fileID: -8951772178301150371}
+  - component: {fileID: -121570445938620240}
   m_Layer: 6
   m_Name: Stew Vegetables
   m_TagString: Untagged
@@ -599,8 +599,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &-2153700216693074140
-SphereCollider:
+--- !u!114 &-8951772178301150371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7649737400747700779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientType: 0
+  onBelt: 0
+--- !u!65 &-121570445938620240
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -618,23 +633,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.44588697
+  m_Size: {x: 0.89177394, y: 0.08999999, z: 0.89177394}
   m_Center: {x: 0, y: 0.044999994, z: 0}
---- !u!114 &-8951772178301150371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7649737400747700779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientType: 0
-  onBelt: 0
 --- !u!1 &7699105275320204665
 GameObject:
   m_ObjectHideFlags: 0

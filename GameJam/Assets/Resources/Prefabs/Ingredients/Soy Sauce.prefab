@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 468156185710130405}
-  - component: {fileID: -1225899691599571130}
   - component: {fileID: 4580809404260762928}
+  - component: {fileID: 6304824412883873791}
   m_Layer: 6
   m_Name: Soy Sauce
   m_TagString: Untagged
@@ -39,8 +39,23 @@ Transform:
   - {fileID: 4558665919615376538}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!135 &-1225899691599571130
-SphereCollider:
+--- !u!114 &4580809404260762928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8648094678300170398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientType: 0
+  onBelt: 0
+--- !u!65 &6304824412883873791
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -58,23 +73,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.2127349
-  m_Center: {x: 0, y: 0.71273494, z: 0}
---- !u!114 &4580809404260762928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8648094678300170398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientType: 0
-  onBelt: 0
+  m_Size: {x: 2.4391131, y: 1.0603229, z: 2.2250714}
+  m_Center: {x: -0, y: 0.53016144, z: -0}
 --- !u!1001 &479937298781917496
 PrefabInstance:
   m_ObjectHideFlags: 0

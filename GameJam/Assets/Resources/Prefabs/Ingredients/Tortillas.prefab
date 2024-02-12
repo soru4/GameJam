@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7076238974702688888}
   - component: {fileID: 3461695719276914571}
   - component: {fileID: 1115860464862900451}
-  - component: {fileID: 5972723231245654073}
   - component: {fileID: 1751840421296259803}
+  - component: {fileID: -4222381092225883542}
   m_Layer: 6
   m_Name: Tortillas
   m_TagString: Untagged
@@ -89,8 +89,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5972723231245654073
-SphereCollider:
+--- !u!114 &1751840421296259803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807121317686189084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientType: 0
+  onBelt: 0
+--- !u!65 &-4222381092225883542
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,23 +123,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.44588697
+  m_Size: {x: 0.89177394, y: 0.08999999, z: 0.89177394}
   m_Center: {x: 0, y: 0.044999994, z: 0}
---- !u!114 &1751840421296259803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807121317686189084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientType: 0
-  onBelt: 0
 --- !u!1 &984535954344547855
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1151445368949775032}
   - component: {fileID: 6485219660184019553}
   - component: {fileID: 7966151486916260641}
-  - component: {fileID: 7588083323014846573}
   - component: {fileID: -3326163542203740521}
+  - component: {fileID: -2833323505670811995}
   m_Layer: 6
   m_Name: Toppings
   m_TagString: Untagged
@@ -92,8 +92,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7588083323014846573
-SphereCollider:
+--- !u!114 &-3326163542203740521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325548164597860827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientType: 0
+  onBelt: 0
+--- !u!65 &-2833323505670811995
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,23 +126,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.44588697
+  m_Size: {x: 0.89177394, y: 0.08999999, z: 0.89177394}
   m_Center: {x: 0, y: 0.044999994, z: 0}
---- !u!114 &-3326163542203740521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325548164597860827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientType: 0
-  onBelt: 0
 --- !u!1 &2817096003612694712
 GameObject:
   m_ObjectHideFlags: 0

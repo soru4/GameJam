@@ -179,8 +179,8 @@ GameObject:
   - component: {fileID: 2980040272593480267}
   - component: {fileID: 124490663052693731}
   - component: {fileID: 5000914355955524425}
-  - component: {fileID: 9041577452682064355}
   - component: {fileID: 3716737034752540051}
+  - component: {fileID: -7515566221187199007}
   m_Layer: 6
   m_Name: Seasoning
   m_TagString: Untagged
@@ -255,8 +255,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &9041577452682064355
-SphereCollider:
+--- !u!114 &3716737034752540051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8383377961134549727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientType: 0
+  onBelt: 0
+--- !u!65 &-7515566221187199007
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -274,20 +289,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.44588697
-  m_Center: {x: 0, y: 0.044999994, z: 0}
---- !u!114 &3716737034752540051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8383377961134549727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientType: 0
-  onBelt: 0
+  m_Size: {x: 0.891774, y: 0.31809822, z: 0.891774}
+  m_Center: {x: -0, y: 0.15904911, z: -0}

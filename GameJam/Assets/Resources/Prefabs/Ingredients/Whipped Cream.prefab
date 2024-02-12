@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8944116078522396414}
-  - component: {fileID: 6279041707122035185}
   - component: {fileID: 2237866019323075836}
+  - component: {fileID: -4659648908658103518}
   m_Layer: 6
   m_Name: Whipped Cream
   m_TagString: Untagged
@@ -38,8 +38,23 @@ Transform:
   - {fileID: 8197588966977137445}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!135 &6279041707122035185
-SphereCollider:
+--- !u!114 &2237866019323075836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2653628436585060503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientType: 0
+  onBelt: 0
+--- !u!65 &-4659648908658103518
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -57,23 +72,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.2300243
-  m_Center: {x: 0, y: 0.73002434, z: 0}
---- !u!114 &2237866019323075836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2653628436585060503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientType: 0
-  onBelt: 0
+  m_Size: {x: 2.4391131, y: 0.3001771, z: 2.2250714}
+  m_Center: {x: -0, y: 0.15008855, z: -0}
 --- !u!1001 &800060749300336088
 PrefabInstance:
   m_ObjectHideFlags: 0

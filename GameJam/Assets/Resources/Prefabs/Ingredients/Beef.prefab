@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8169256006888586373}
   - component: {fileID: 3913445855632600541}
   - component: {fileID: -8721883107594044876}
+  - component: {fileID: -5511582064748369366}
   m_Layer: 6
   m_Name: Beef
   m_TagString: Untagged
@@ -124,6 +125,27 @@ MonoBehaviour:
   ingredientName: 
   ingredientType: 1
   onBelt: 0
+--- !u!65 &-5511582064748369366
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414063819073248873}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.89177394, y: 0.08999999, z: 0.89177394}
+  m_Center: {x: 0, y: 0.044999994, z: 0}
 --- !u!1 &2398253482143203907
 GameObject:
   m_ObjectHideFlags: 0

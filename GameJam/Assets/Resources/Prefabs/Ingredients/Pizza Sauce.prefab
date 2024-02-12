@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1127407625486653201}
   - component: {fileID: 7316597878271741616}
   - component: {fileID: 9158555725249606469}
-  - component: {fileID: -690324176411335190}
   - component: {fileID: -497415108407848804}
+  - component: {fileID: -1267405523019594736}
   m_Layer: 6
   m_Name: Pizza Sauce
   m_TagString: Untagged
@@ -86,8 +86,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &-690324176411335190
-SphereCollider:
+--- !u!114 &-497415108407848804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142691981609967776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientType: 0
+  onBelt: 0
+--- !u!65 &-1267405523019594736
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,23 +120,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.44588697
-  m_Center: {x: 0, y: 0.044999994, z: 0}
---- !u!114 &-497415108407848804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2142691981609967776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientType: 0
-  onBelt: 0
+  m_Size: {x: 0.891774, y: 0.22717765, z: 0.891774}
+  m_Center: {x: -0, y: 0.113588825, z: -0}
 --- !u!1 &6342479947855405142
 GameObject:
   m_ObjectHideFlags: 0

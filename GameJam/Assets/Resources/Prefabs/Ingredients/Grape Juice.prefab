@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7296799451382654876}
-  - component: {fileID: -5445504602507357344}
   - component: {fileID: -7057965368961427370}
+  - component: {fileID: -821054694303090785}
   m_Layer: 6
   m_Name: Grape Juice
   m_TagString: Untagged
@@ -35,8 +35,23 @@ Transform:
   - {fileID: 6875167871225933556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!135 &-5445504602507357344
-SphereCollider:
+--- !u!114 &-7057965368961427370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829890200790811272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientType: 0
+  onBelt: 0
+--- !u!65 &-821054694303090785
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -54,23 +69,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.322237
-  m_Center: {x: 0, y: 0.822237, z: 0}
---- !u!114 &-7057965368961427370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2829890200790811272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc663b2876fc417c88635b64b14a4de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientType: 0
-  onBelt: 0
+  m_Size: {x: 2.4391131, y: 1.0220523, z: 2.2250714}
+  m_Center: {x: -0, y: 0.51102614, z: -0}
 --- !u!1001 &2715754653584932873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,6 +197,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e133c3007aa364db4a65d086d60a2eac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f30eda77f4e3745b79f43df95e9d9b95, type: 2}
     - target: {fileID: 919132149155446097, guid: e133c3007aa364db4a65d086d60a2eac, type: 3}
       propertyPath: m_Name
       value: wineRed

@@ -7,7 +7,7 @@ public class Dish
 {
 	public static List<Dish> dishes = new List<Dish>();
 
-	public static Dish QueryDish(float complexity) //implement later
+	public static Dish QueryDish() //implement later
 	{
 		return dishes[Random.Range(0, dishes.Count)];
 	}
@@ -16,9 +16,9 @@ public class Dish
 
 	// Static Above, Instance Below
 
+	string name;
 	public Dictionary<Ingredient, (float, float)> valuations;
 	public Dictionary<Equipments, float> equipmentValuations;
-	public int complexityLevel;
 
 	public Dish(List<Ingredient> ingredients, Dictionary<Equipments, float> equipmentValuations, int complexityLevel)
 	{
@@ -33,7 +33,6 @@ public class Dish
 		}
 
 		this.equipmentValuations = equipmentValuations;
-		this.complexityLevel = complexityLevel;
 	}
 
 
