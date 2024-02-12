@@ -185,6 +185,7 @@ public class RoundManager : MonoBehaviour
 
 	}
 	public void SpawnFinishedDish(GameState state){
+		
 		GameManager.inst.totalSpawnedDished ++;
 		if(state == GameState.ScrollPast){
 			GameObject x = Instantiate(tempDishForTesting, new Vector3(-130f,-9.78f,18.86f), Quaternion.identity);

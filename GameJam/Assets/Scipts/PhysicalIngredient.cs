@@ -20,7 +20,7 @@ public class PhysicalIngredient : MonoBehaviour
     {
         ingredientName = gameObject.name.Split()[0];
         ingredientType = (Ingredient)Enum.Parse(typeof(Ingredient), ingredientName);
-        ingredientType.SetMinMax(MinCount, MaxCount);
+        
     }
 
     // Update is called once per frame
