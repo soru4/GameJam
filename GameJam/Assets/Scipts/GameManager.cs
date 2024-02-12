@@ -19,8 +19,10 @@ public class GameManager : MonoBehaviour
 	public Dictionary<Ingredient, PhysicalIngredient> physicalIngredientMap = new Dictionary<Ingredient, PhysicalIngredient>();
     public List<GameObject> ingredientsOnBelt;
     public int totalNumOfIngredients = 0;
-    [SerializeField] Transform ingredientParent;
-
+	[SerializeField] Transform ingredientParent;
+	public List<GameObject> currentFinishedDishesOnScreen;
+	public int totalSpawnedDished = 0;
+		
     private void Awake()
     {
         inst = this;
@@ -52,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateIngredientAmount(PhysicalIngredient physicalIngredient, int amount)
     {
-        if (currentGameState == GameState.StopScroll)
+	    if (currentGameState == GameState.StopScroll || (RoundManager.inst.instIngredients.Count > 0 && currentGameState == GameState.ContinueScroll))
         {
             totalNumOfIngredients += amount;
             if (amount >= 1)

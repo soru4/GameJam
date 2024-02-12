@@ -1,15 +1,20 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-
+	public static CameraMovement inst;
     [SerializeField] List<Transform> locations;
     [SerializeField] float speedScaler;
     Transform cam;
-    AnimationCurve smooth;
+	public AnimationCurve smooth;
 
+	// Awake is called when the script instance is being loaded.
+	protected void Awake()
+	{
+		inst = this;
+	}
     private void Start()
     {
         smooth = RoundManager.inst.smooth;
