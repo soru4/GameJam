@@ -54,13 +54,13 @@ public class RoundManager : MonoBehaviour
 		beltAnimator = beltAnimator.GetComponent<BeltManager>();
 		// we want to start with starting the animcontroller
 		RoundTimer += GameManager.inst.CookingTime + GameManager.inst.ScrollPastTime;
-		GameManager.inst.currentGameState = RoundState.ScrollPast;
+		GameManager.inst.currentRoundState = RoundState.ScrollPast;
 		//SpawnIngredients();
    
 		// we want to start with starting the animcontroller
 
 		RoundTimer = GameManager.inst.CookingTime + GameManager.inst.ScrollPastTime;
-		GameManager.inst.currentGameState = RoundState.ScrollPast;
+		GameManager.inst.currentRoundState = RoundState.ScrollPast;
 		//SpawnIngredients();
 		elapsedTime = 0;
 	}
@@ -69,18 +69,18 @@ public class RoundManager : MonoBehaviour
 	void Update()
 	{
 		elapsedTime += Time.deltaTime;
-		switch (GameManager.inst.currentGameState)
+		switch (GameManager.inst.currentRoundState)
 		{
 		case RoundState.ScrollPast:
 			beltAnimator.SetSpeedColective(2, 0.001f);
 			
 			if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0 && GameManager.inst.totalSpawnedDished < 1)
-				SpawnFinishedDish(GameManager.inst.currentGameState);
+				SpawnFinishedDish(GameManager.inst.currentRoundState);
 			if(elapsedTime >= GameManager.inst.ScrollPastTime - slideDuration)
 			{
 				if (!dishInstantiated)
 				{
-					Dish d = new Dish(new List<Ingredient> { Ingredient.Eggs, Ingredient.Cheese, Ingredient.Bread, Ingredient.Flour }, new Dictionary<Equipments, float> { }, 1);
+					Dish d = new Dish("yummy", new List<Ingredient> { Ingredient.Eggs, Ingredient.Cheese, Ingredient.Bread, Ingredient.Flour }, new float[6]);
 					dishRef = d;
 					SpawnIngredients();
 					dishInstantiated = true;
@@ -88,7 +88,7 @@ public class RoundManager : MonoBehaviour
 			}
 			if (GameManager.inst.currentFinishedDishesOnScreen.Count <=0)
 			{
-				GameManager.inst.currentGameState = RoundState.StopScroll;
+				GameManager.inst.currentRoundState = RoundState.StopScroll;
 			}
 			break;
 				
@@ -101,7 +101,7 @@ public class RoundManager : MonoBehaviour
 			{
 				
 				StartCoroutine(DisappearAll());
-				GameManager.inst.currentGameState = RoundState.ContinueScroll;
+				GameManager.inst.currentRoundState = RoundState.ContinueScroll;
 			}
 			break;
 				
@@ -110,7 +110,7 @@ public class RoundManager : MonoBehaviour
 			if ( GameManager.inst.ingredientsOnBelt.Count <= 0)
 			{
 				
-				GameManager.inst.currentGameState = RoundState.ShowScore;
+				GameManager.inst.currentRoundState = RoundState.ShowScore;
 				
 
 			}
@@ -122,7 +122,7 @@ public class RoundManager : MonoBehaviour
 			}
 			beltAnimator.SetSpeedColective(-1.5f, 0.007f);
 			if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0){
-					SpawnFinishedDish(GameManager.inst.currentGameState);
+					SpawnFinishedDish(GameManager.inst.currentRoundState);
 			}
 				
 			break;

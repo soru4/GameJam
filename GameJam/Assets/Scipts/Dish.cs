@@ -16,11 +16,11 @@ public class Dish
 
 	// Static Above, Instance Below
 
-	string name;
+	public string name;
 	public Dictionary<Ingredient, (float, float)> valuations;
-	public Dictionary<Equipments, float> equipmentValuations;
+	public float[] equipmentValuations;
 
-	public Dish(List<Ingredient> ingredients, Dictionary<Equipments, float> equipmentValuations, int complexityLevel)
+	public Dish(string name, List<Ingredient> ingredients, float[] equipmentValuations)
 	{
 		valuations = new Dictionary<Ingredient, (float, float)>();
 		
@@ -32,11 +32,12 @@ public class Dish
 			valuations.Add(i, (mean, std));
 		}
 
+		this.name = name;
 		this.equipmentValuations = equipmentValuations;
 	}
 
 
-	float CalculateScore(Dictionary<Ingredient, float> ingredients, Dictionary<Equipments, float> equipment)
+	float CalculateScore(Dictionary<Ingredient, float> ingredients, int[] equipmentQuantities)
 	{
 		float sum = 0;
 		foreach(var item in valuations)
@@ -47,15 +48,16 @@ public class Dish
 		sum /= ingredients.Count;
 
 		float equipScore = 0;
-		foreach(var item in equipmentValuations)
+		float maxEquipScore = 0;
+		for (int i = 0; i < equipmentValuations.Length; i++)
 		{
-			float score = 0.2f * (item.Value - equipment[item.Key]);
+			float score = Mathf.Sqrt(equipmentValuations[i] * equipmentQuantities[i]);
 			equipScore += score;
+			maxEquipScore += equipmentValuations[i];
 		}
 
-		return Mathf.Clamp01(sum * equipScore);
+		return Mathf.Clamp01(sum * (1 + equipScore / maxEquipScore));
 
-		// involve equipment as well
 	}
 
 
@@ -80,6 +82,14 @@ public static class IngredientMethods
 	public static float GetCost(this Ingredient ing) => ingredientCosts[ing];
 }
 
-public enum Equipments{
+public enum Equipment
+{
+	Knives, Tools, Pans, Stove, Microwave, Mixer
+}
 
+public static class EquipmentMethods
+{
+	public static Dictionary<Equipment, (float, float)> upgradeCosts = new Dictionary<Equipment, (float, float)>();
+	public static void SetCosts(this Equipment eq, (float, float) vals) => upgradeCosts[eq] = vals;
+	public static float GetCost(this Equipment eq, int id) => id == 0 ? upgradeCosts[eq].Item1 : upgradeCosts[eq].Item2;
 }

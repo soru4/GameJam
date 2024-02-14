@@ -24,8 +24,10 @@ public class DisplayManager : MonoBehaviour
 
         if (hitting)
         {
-            CancelInvoke();
-            text.text = hit.collider.gameObject.name;
+            string str = hit.collider.gameObject.name;
+            Ingredient ing = hit.collider.GetComponent<PhysicalIngredient>().ingredientType;
+            str += " - " + GameManager.inst.GetCount(ing) + "/" + ing.GetMax();
+            text.text = str;
             targetOpac = 1;
         }
         else

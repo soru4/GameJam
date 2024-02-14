@@ -360,6 +360,7 @@
 "Assets/Scipts/DisplayManager.cs"
 "Assets/Scipts/GameManager.cs"
 "Assets/Scipts/PhysicalDish.cs"
+"Assets/Scipts/PhysicalEquipment.cs"
 "Assets/Scipts/PhysicalIngredient.cs"
 "Assets/Scipts/RoundManager.cs"
 "Assets/Scipts/SpotlightManager.cs"

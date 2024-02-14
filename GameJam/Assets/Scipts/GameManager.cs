@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager inst;
     public Dictionary<Ingredient, int> IngredientAmount = new Dictionary<Ingredient, int>();
+    public int[] equipmentValues;
     public float money = 100;
-    public RoundState currentGameState;
+    public LevelState levelState;
+    public RoundState currentRoundState;
     public GameObject beltSpawnPoint;
     public int ScrollPastTime = 5;
     public int CookingTime = 10;
@@ -32,7 +34,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        equipmentValues = new int[] { 1, 1, 1, 1, 1, 1 };
     }
 
     // Update is called once per frame
@@ -43,13 +45,15 @@ public class GameManager : MonoBehaviour
 
     public void UpdateIngredientAmount(PhysicalIngredient physicalIngredient, int amount)
     {
-        if (currentGameState == RoundState.StopScroll || (RoundManager.inst.instIngredients.Count > 0 && currentGameState == RoundState.ContinueScroll))
+        if (currentRoundState == RoundState.StopScroll || (RoundManager.inst.instIngredients.Count > 0 && currentRoundState == RoundState.ContinueScroll))
         {
             Ingredient ingredient = physicalIngredient.ingredientType;
+
             if (amount >= 1 && money < ingredient.GetCost())
                 return;
-            if (amount <= -1 && (IngredientAmount.ContainsKey(ingredient) ? IngredientAmount[ingredient] : 0) == 0)
+            if (GetCount(ingredient) + amount > ingredient.GetMax() || GetCount(ingredient) + amount < 0)
                 return;
+
             totalNumOfIngredients += amount;
             if (amount >= 1)
             {
@@ -78,7 +82,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void UpdateEquipmentAmount(PhysicalEquipment physicalEquipment, int amount)
+    {
+        if (levelState != LevelState.Equipping)
+            return;
 
+        int id = (int)physicalEquipment.equipment;
+        int newVal = equipmentValues[id] + amount;
+        if(newVal < 1 || newVal > 3)
+            return;
+
+        float cost = physicalEquipment.equipment.GetCost((int)((newVal + equipmentValues[id] - 3) * 0.5f)); // 1+1+1 or 2-1+2 ==> 3     2+1+2 or 3-1+3 ==> 5
+        if (amount >= 1 && money < cost)
+            return;
+
+        equipmentValues[id] = newVal;
+        money -= amount * cost;
+
+    }
+
+
+
+    public int GetCount(Ingredient ing)
+    {
+        return IngredientAmount.ContainsKey(ing) ? IngredientAmount[ing] : 0;
+    }
 
 
 }

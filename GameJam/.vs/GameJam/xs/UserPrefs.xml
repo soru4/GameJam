@@ -1,26 +1,22 @@
 ﻿<Properties StartupConfiguration="{35223D1A-0ABA-3E00-D682-2F913F0EB5DC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scipts/SpotlightManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scipts/Dish.cs">
     <Files>
-      <File FileName="Assets/Scipts/PhysicalIngredient.cs" Line="19" Column="85" />
-      <File FileName="Assets/Scipts/Dish.cs" />
-      <File FileName="Assets/Scipts/DishManager.cs" />
-      <File FileName="Assets/Scipts/GameManager.cs" Line="54" Column="6" />
-      <File FileName="Assets/Scipts/RoundManager.cs" Line="139" Column="83" />
-      <File FileName="Assets/Scipts/SpotlightManager.cs" Line="43" Column="1" />
+      <File FileName="Assets/Scipts/Dish.cs" Line="96" Column="1" />
+      <File FileName="Assets/Scipts/DishManager.cs" Line="32" Column="1" />
+      <File FileName="Assets/Scipts/GameManager.cs" Line="98" Column="1" />
+      <File FileName="Assets/Scipts/RoundManager.cs" Line="84" Column="18" />
+      <File FileName="Assets/Scipts/SpotlightManager.cs" Line="34" Column="20" />
       <File FileName="Assets/Scipts/ConveyerItems.cs" />
       <File FileName="Assets/Scipts/BeltManager.cs" />
       <File FileName="Assets/Scipts/CameraMovement.cs" />
+      <File FileName="Assets/Scipts/PhysicalIngredient.cs" Line="22" Column="39" />
+      <File FileName="Assets/Scipts/PhysicalEquipment.cs" Line="14" Column="37" />
+      <File FileName="Assets/Scipts/DisplayManager.cs" Line="12" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="GameJam" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scipts" expanded="True">
-                <Node name="SpotlightManager.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
+          <Node name="GameJam" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
