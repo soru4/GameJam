@@ -1,15 +1,16 @@
 ﻿<Properties StartupConfiguration="{35223D1A-0ABA-3E00-D682-2F913F0EB5DC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scipts/SpotlightManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scipts/PhysicalDish.cs">
     <Files>
-      <File FileName="Assets/Scipts/PhysicalIngredient.cs" Line="19" Column="85" />
+      <File FileName="Assets/Scipts/PhysicalIngredient.cs" Line="14" Column="53" />
       <File FileName="Assets/Scipts/Dish.cs" />
-      <File FileName="Assets/Scipts/DishManager.cs" />
-      <File FileName="Assets/Scipts/GameManager.cs" Line="54" Column="6" />
-      <File FileName="Assets/Scipts/RoundManager.cs" Line="139" Column="83" />
+      <File FileName="Assets/Scipts/DishManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scipts/GameManager.cs" Line="41" Column="64" />
+      <File FileName="Assets/Scipts/RoundManager.cs" Line="56" Column="37" />
       <File FileName="Assets/Scipts/SpotlightManager.cs" Line="43" Column="1" />
-      <File FileName="Assets/Scipts/ConveyerItems.cs" />
-      <File FileName="Assets/Scipts/BeltManager.cs" />
+      <File FileName="Assets/Scipts/ConveyerItems.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scipts/BeltManager.cs" Line="14" Column="62" />
       <File FileName="Assets/Scipts/CameraMovement.cs" />
+      <File FileName="Assets/Scipts/PhysicalDish.cs" Line="22" Column="3" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +18,7 @@
           <Node name="GameJam" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scipts" expanded="True">
-                <Node name="SpotlightManager.cs" selected="True" />
+                <Node name="PhysicalDish.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -27,7 +28,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="566626ee-7038-4458-b350-d5988aa5b17d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="13e05261-fad5-429f-a725-243a6a4b1de7" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

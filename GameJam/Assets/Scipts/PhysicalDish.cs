@@ -11,10 +11,10 @@ public class PhysicalDish : MonoBehaviour
 	void Update()
 	{
     	
-		if(onBelt && (GameManager.inst.currentGameState == RoundState.ShowScore || GameManager.inst.currentGameState == RoundState.ScrollPast)){
+		if(onBelt && (GameManager.inst.currentRoundState == RoundState.ShowScore || GameManager.inst.currentRoundState == RoundState.ScrollPast)){
 			transform.position += new Vector3(BeltManager.inst.speed * 20 * Time.deltaTime ,0,0);
 		}
-		if((transform.position.x <= -130 && GameManager.inst.currentGameState == RoundState.ShowScore) || (transform.position.x >= 230 && GameManager.inst.currentGameState == RoundState.ScrollPast)  && onBelt){
+		if((transform.position.x <= -130 && GameManager.inst.currentRoundState == RoundState.ShowScore) || (transform.position.x >= 230 && GameManager.inst.currentRoundState == RoundState.ScrollPast)  && onBelt){
 	    	
 			GameManager.inst.currentFinishedDishesOnScreen.Remove(gameObject);
 			Destroy(gameObject);

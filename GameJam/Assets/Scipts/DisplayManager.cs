@@ -1,11 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DisplayManager : MonoBehaviour
 {
-    [SerializeField] Text text;
+	[SerializeField] TextMeshProUGUI text;
+	[SerializeField] TextMeshProUGUI money;
+	[SerializeField] TextMeshProUGUI roundState;
     [SerializeField] CanvasGroup cg;
     float currentOpac;
     float targetOpac;
@@ -18,16 +21,34 @@ public class DisplayManager : MonoBehaviour
     }
 
     private void Update()
-    {
+	{
+		money.text = "$" + GameManager.inst.money;
+		switch(GameManager.inst.currentRoundState){
+		case RoundState.ScrollPast:
+			roundState.text = "Pay attention to the items on the belt!";
+			break;
+		case RoundState.StopScroll:
+			roundState.text = "Click on the ingredients to add them to the final dish!";
+			break;
+		case RoundState.ContinueScroll:
+			roundState.text = "Your dish is being cooked...Wait For a few seconds!";
+			break;
+		case RoundState.ShowScore:
+			roundState.text = "Your dish has been cooked...the score is displayed below...";
+			break;
+		}
         RaycastHit hit;
         bool hitting = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f, LayerMask.GetMask("FoodItem"));
+	    if (hitting)
+	    {
+		    string str = hit.collider.gameObject.name;
+		    Ingredient ing = hit.collider.GetComponent<PhysicalIngredient>().ingredientType;
+		    str += " - " + GameManager.inst.GetCount(ing) + "/" + ing.GetMax();
+		    text.text = str;
+		    targetOpac = 1;
+	    }
 
-        if (hitting)
-        {
-            CancelInvoke();
-            text.text = hit.collider.gameObject.name;
-            targetOpac = 1;
-        }
+
         else
         {
             targetOpac = 0;

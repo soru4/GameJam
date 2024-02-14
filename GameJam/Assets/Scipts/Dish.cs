@@ -16,12 +16,13 @@ public class Dish
 
 	// Static Above, Instance Below
 
-	string name;
+	public string name;
 	public Dictionary<Ingredient, (float, float)> valuations;
 	public Dictionary<Equipments, float> equipmentValuations;
 
-	public Dish(List<Ingredient> ingredients, Dictionary<Equipments, float> equipmentValuations, int complexityLevel)
+	public Dish(string name, List<Ingredient> ingredients, Dictionary<Equipments, float> equipmentValuations, int complexityLevel)
 	{
+		this.name = name;
 		valuations = new Dictionary<Ingredient, (float, float)>();
 		
 		foreach (Ingredient i in ingredients)
