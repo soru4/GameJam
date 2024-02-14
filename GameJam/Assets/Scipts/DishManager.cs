@@ -19,7 +19,7 @@ public class DishManager : MonoBehaviour
     {
         foreach (Ingredient ing in Enum.GetValues(typeof(Ingredient)))
         {
-            ing.SetCost(1);
+            ing.SetCost(5);
             ing.SetMax(10);
         }
     }

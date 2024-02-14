@@ -22,7 +22,7 @@ public class PhysicalIngredient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	    if (onBelt && (GameManager.inst.currentGameState == GameState.StopScroll || GameManager.inst.currentGameState == GameState.ContinueScroll || GameManager.inst.currentGameState == GameState.ShowScore) )
+	    if (onBelt && (GameManager.inst.currentGameState == RoundState.StopScroll || GameManager.inst.currentGameState == RoundState.ContinueScroll || GameManager.inst.currentGameState == RoundState.ShowScore) )
         {
 	        transform.position += new Vector3(BeltManager.inst.speed * 20 * Time.deltaTime, 0, 0);
         }
