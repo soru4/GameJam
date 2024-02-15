@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class ConveyerItems : MonoBehaviour
 {
-	public Vector3 startPositionP; 
-	public Vector3 endPositionP;
-	public Vector3 startPositionN; 
-	public Vector3 endPositionN;
+
 	
 	
 	Vector3 startPos;
@@ -16,10 +13,7 @@ public class ConveyerItems : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		startPositionP = new Vector3(-147f,0,0);
-		endPositionP = new Vector3(257f,0,0);
-		endPositionN = startPositionP;
-		startPositionN = endPositionP;
+
 		
 		startPos = transform.position;
 		

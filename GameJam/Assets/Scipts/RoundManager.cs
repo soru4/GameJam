@@ -36,12 +36,31 @@ public class RoundManager : MonoBehaviour
 	[SerializeField] float slideDuration;
 	[SerializeField] float slideGap;
 	[SerializeField] float startAngle, finalAngle;
-	[SerializeField] GameObject tempDishForTesting; //DELETE THIS LATER!!!
+
 	public int stopScrollStartTime = 0;
 	bool dishInstantiated = false;
 	[SerializeField] AnimationCurve disappearanceSpeeds;
 	[SerializeField] GameObject smokeParticle, dustParticle;
 	public bool roundOver = false;
+	GameObject finalDish;
+	int l = 0;
+	
+	public void QueryDish(){
+		// THIS METHOD IS WRITTEN BY SOHUM!!!!!!!
+
+		Dish[] possibleDishes = {
+			new Dish("Hot Dog", new List<Ingredient> {Ingredient.Hot_Dog_Buns, Ingredient.Sausages, Ingredient.Ketchup}, new Dictionary<Equipment,float>{} )
+			, new Dish("Donut", new List<Ingredient> {Ingredient.Eggs, Ingredient.Dough, Ingredient.Chocolate}, new Dictionary<Equipment, float>(){{Equipment.Mixer, 1}})
+			, new Dish("Cake", new List<Ingredient> {Ingredient.Eggs, Ingredient.Flour, Ingredient.Chocolate, Ingredient.Strawberries}, new Dictionary<Equipment, float>(){{Equipment.Mixer, 1},{Equipment.Stove,2}})
+			, new Dish("Burger", new List<Ingredient> {Ingredient.Buns,Ingredient.Cheese,Ingredient.Beef}, new Dictionary<Equipment, float>(){{Equipment.Stove,2}})
+			, new Dish("IceCream", new List<Ingredient> {Ingredient.Eggs, Ingredient.Milk }, new Dictionary<Equipment, float>(){{Equipment.Mixer, 1}})
+			, new Dish("Pizza", new List<Ingredient> {Ingredient.Dough, Ingredient.Pizza_Sauce, Ingredient.Cheese, Ingredient.Toppings }, new Dictionary<Equipment, float>(){{Equipment.Stove, 3}, {Equipment.Mixer, 2}})
+			, new Dish("Taco", new List<Ingredient> {Ingredient.Taco_Meat, Ingredient.Taco_Sauce, Ingredient.Cheese, Ingredient.Tortillas }, new Dictionary<Equipment, float>(){{Equipment.Knives, 3},{Equipment.Stove,3}})
+			, new Dish("Sushi", new List<Ingredient> {Ingredient.Rice_and_Seaweed, Ingredient.Fish_Fillets, Ingredient.Avocados},new Dictionary<Equipment, float>(){{Equipment.Microwave, 1}, {Equipment.Knives, 2}, {Equipment.Stove, 3}})
+		};
+
+		dishRef =  possibleDishes[UnityEngine.Random.Range(0, possibleDishes.Length - 1)];
+	}
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
@@ -72,26 +91,27 @@ public class RoundManager : MonoBehaviour
 		switch (GameManager.inst.currentRoundState)
 		{
 		case RoundState.ScrollPast:
-			Dish d = new Dish("Sandwich", new List<Ingredient> { Ingredient.Eggs, Ingredient.Cheese, Ingredient.Bread, Ingredient.Flour }, new Dictionary<Equipments, float> { }, 1);
-			dishRef = d;
-			beltAnimator.SetSpeedColective(2, 0.001f);
 			
+			beltAnimator.SetSpeedColective(2, 0.001f);
+			if(GameManager.inst.totalSpawnedDished < 1)
+				QueryDish();
+			if (GameManager.inst.currentFinishedDishesOnScreen.Count <=0 && GameManager.inst.totalSpawnedDished >=1)
+			{
+				GameManager.inst.currentRoundState = RoundState.StopScroll;
+				
+				SpawnIngredients();
+			}
 			if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0 && GameManager.inst.totalSpawnedDished < 1)
 				SpawnFinishedDish(GameManager.inst.currentRoundState);
 			if(elapsedTime >= GameManager.inst.ScrollPastTime - slideDuration)
 			{
 				if (!dishInstantiated)
-				{
+				{					
 					
-					
-					SpawnIngredients();
 					dishInstantiated = true;
 				}
 			}
-			if (GameManager.inst.currentFinishedDishesOnScreen.Count <=0)
-			{
-				GameManager.inst.currentRoundState = RoundState.StopScroll;
-			}
+			
 			break;
 				
 		case RoundState.StopScroll:
@@ -99,7 +119,7 @@ public class RoundManager : MonoBehaviour
 			if(stopScrollStartTime == 0 )
 				stopScrollStartTime = (int)Time.time;
 				
-			if (Time.time - stopScrollStartTime >= GameManager.inst.CookingTime)
+			if (elapsedTime - stopScrollStartTime >= GameManager.inst.CookingTime)
 			{
 				
 				StartCoroutine(DisappearAll());
@@ -124,9 +144,11 @@ public class RoundManager : MonoBehaviour
 			}
 			beltAnimator.SetSpeedColective(-1.5f, 0.007f);
 			if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0){
-					SpawnFinishedDish(GameManager.inst.currentRoundState);
+				finalDish = SpawnFinishedDish(GameManager.inst.currentRoundState);
 			}
-				
+			if(finalDish.transform.position.x < -120){
+				Reset();
+			}
 			break;
 		}
 
@@ -140,6 +162,7 @@ public class RoundManager : MonoBehaviour
 
 		// get actual ingredients
 		foreach(Ingredient x in dishRef.valuations.Keys){
+			print(x.ToString());
 			ingredients.Add(Resources.Load("Prefabs/Ingredients/" + x.ToString().Replace("_", " ")) as GameObject);
 		}
 
@@ -170,28 +193,47 @@ public class RoundManager : MonoBehaviour
 		StartCoroutine(ChainSlide(instIngredients, slideGap));
 
 	}
-	
+	public void Reset(){
+		GameManager.inst.roundNumber ++;
+		GameManager.inst.money += 120;
+		elapsedTime = 0;
+		dishInstantiated = false;
+		CameraMovement.inst.MoveToIndex(0);
+		GameManager.inst.totalNumOfIngredients = 0;
+		GameManager.inst.currentRoundState = RoundState.ScrollPast;
+		GameManager.inst.totalSpawnedDished = 0;
+		Destroy(finalDish.gameObject);
+		finalDish = null;
+	}
 	public void ClearIngredients()
 	{
 		Shuffle(ref instIngredients);
 		StartCoroutine(DisappearAll());
 	}
-	public void SpawnFinishedDish(RoundState state){
+	public GameObject SpawnFinishedDish(RoundState state){
 	
 		
-		GameManager.inst.totalSpawnedDished ++;
+		
+		
+		
+		
 		if(state == RoundState.ScrollPast){
-			
+			GameManager.inst.totalSpawnedDished++;
+			print(dishRef.name);
 			GameObject x = Instantiate((GameObject)Resources.Load("Prefabs/Dishes/"+dishRef.name), new Vector3(-130f,-9.78f,18.86f), Quaternion.identity);
 			x.transform.localScale = new Vector3(8,8,8);
 			x.AddComponent<PhysicalDish>().onBelt = true;
 			GameManager.inst.currentFinishedDishesOnScreen.Add(x);
+			return x;
 		}else if(state == RoundState.ShowScore){
+			GameManager.inst.totalSpawnedDished++;
 			GameObject x = Instantiate((GameObject)Resources.Load("Prefabs/Dishes/"+dishRef.name), new Vector3(230,-9.78f,18.86f), Quaternion.identity);
 			x.AddComponent<PhysicalDish>().onBelt = true;
 			x.transform.localScale = new Vector3(8,8,8);
 			GameManager.inst.currentFinishedDishesOnScreen.Add(x);
+			return x;
 		}
+		return null;
 	}
 	
 

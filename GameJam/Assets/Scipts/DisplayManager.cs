@@ -35,6 +35,7 @@ public class DisplayManager : MonoBehaviour
 			break;
 		case RoundState.ShowScore:
 			roundState.text = "Your dish has been cooked...the score is displayed below...";
+			//text.text =( RoundManager.inst.dishRef.CalculateScore(GameManager.inst.IngredientAmount, null)).ToString();
 			break;
 		}
         RaycastHit hit;

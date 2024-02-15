@@ -47,6 +47,7 @@ public class BeltManager : MonoBehaviour
 				s.Add(y.gameObject);
 			}
 		}
+		
 		GameObject[] z = s.ToArray();
 		z = z.OrderBy(x => x.transform.position.x).ToArray();
 		

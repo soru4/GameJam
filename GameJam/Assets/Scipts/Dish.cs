@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[System.Serializable]
 public class Dish
 {
 	public static List<Dish> dishes = new List<Dish>();
@@ -18,11 +18,11 @@ public class Dish
 
 	public string name;
 	public Dictionary<Ingredient, (float, float)> valuations;
-	public Dictionary<Equipments, float> equipmentValuations;
+	public Dictionary<Equipment, float> equipmentValuations;
 
-	public Dish(string name, List<Ingredient> ingredients, Dictionary<Equipments, float> equipmentValuations, int complexityLevel)
+	public Dish(string n, List<Ingredient> ingredients, Dictionary<Equipment, float> equipmentValuations)
 	{
-		this.name = name;
+		this.name = n;
 		valuations = new Dictionary<Ingredient, (float, float)>();
 		
 		foreach (Ingredient i in ingredients)
@@ -37,7 +37,7 @@ public class Dish
 	}
 
 
-	float CalculateScore(Dictionary<Ingredient, float> ingredients, Dictionary<Equipments, float> equipment)
+	public float CalculateScore(Dictionary<Ingredient, float> ingredients, Dictionary<Equipment, float> equipment)
 	{
 		float sum = 0;
 		foreach(var item in valuations)
@@ -81,6 +81,16 @@ public static class IngredientMethods
 	public static float GetCost(this Ingredient ing) => ingredientCosts[ing];
 }
 
-public enum Equipments{
 
+
+public enum Equipment
+{
+	Knives, Tools, Pans, Stove, Microwave, Mixer
+}
+
+public static class EquipmentMethods
+{
+	public static Dictionary<Equipment, (float, float)> upgradeCosts = new Dictionary<Equipment, (float, float)>();
+	public static void SetCosts(this Equipment eq, (float, float) vals) => upgradeCosts[eq] = vals;
+	public static float GetCost(this Equipment eq, int id) => id == 0 ? upgradeCosts[eq].Item1 : upgradeCosts[eq].Item2;
 }

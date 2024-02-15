@@ -1302,7 +1302,6 @@ MonoBehaviour:
   slideGap: 0.15
   startAngle: 120
   finalAngle: 0
-  tempDishForTesting: {fileID: 1729733955}
   stopScrollStartTime: 0
   disappearanceSpeeds:
     serializedVersion: 2
@@ -2276,7 +2275,7 @@ MonoBehaviour:
   beltSpawnPoint: {fileID: 138115931}
   ScrollPastTime: 5
   CookingTime: 10
-  levelNumber: 3
+  levelNumber: 0
   ingredientsPerLevel: 0400000006000000090000000b0000000d000000
   roundNumber: 0
   ingredientsOnBelt: []

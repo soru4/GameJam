@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
 
     public static GameManager inst;
-    public Dictionary<Ingredient, int> IngredientAmount = new Dictionary<Ingredient, int>();
+	public Dictionary<Ingredient, float> IngredientAmount = new Dictionary<Ingredient, float>();
     public float money = 100;
     public RoundState currentRoundState;
     public GameObject beltSpawnPoint;
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
 
 	public int GetCount(Ingredient ing)
 	{
-		return IngredientAmount.ContainsKey(ing) ? IngredientAmount[ing] : 0;
+		return IngredientAmount.ContainsKey(ing) ?(int)  IngredientAmount[ing] : 0;
 	}
 
 
