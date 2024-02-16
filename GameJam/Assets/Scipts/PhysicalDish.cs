@@ -15,8 +15,18 @@ public class PhysicalDish : MonoBehaviour
 			transform.position += new Vector3(BeltManager.inst.speed * 20 * Time.deltaTime ,0,0);
 		}
 		if((transform.position.x <= -130 && GameManager.inst.currentRoundState == RoundState.ShowScore) || (transform.position.x >= 230 && GameManager.inst.currentRoundState == RoundState.ScrollPast)  && onBelt){
-	    	
-			GameManager.inst.currentFinishedDishesOnScreen.Remove(gameObject);
+			if(GameManager.inst.currentRoundState == RoundState.ScrollPast){
+				GameManager.inst.currentRoundState = RoundState.StopScroll;
+				GameManager.inst.currentFinishedDishesOnScreen = new List<GameObject>();
+				
+				RoundManager.inst.SpawnIngredients();
+			}
+			if(GameManager.inst.currentRoundState == RoundState.ShowScore){
+				GameManager.inst.currentFinishedDishesOnScreen.Remove(gameObject);
+				Destroy(gameObject);
+				RoundManager.inst.Reset();
+			}
+			
 			Destroy(gameObject);
 		}
 	}

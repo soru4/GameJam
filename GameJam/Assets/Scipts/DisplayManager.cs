@@ -35,9 +35,12 @@ public class DisplayManager : MonoBehaviour
 			break;
 		case RoundState.ShowScore:
 			roundState.text = "Your dish has been cooked...the score is displayed below...";
-			//text.text =( RoundManager.inst.dishRef.CalculateScore(GameManager.inst.IngredientAmount, null)).ToString();
+			text.text =( (int)RoundManager.inst.dishRef.CalculateScore(GameManager.inst.IngredientAmount, GameManager.inst.equipmentValues)).ToString();
+			targetOpac = 1;
+			
 			break;
 		}
+		if(GameManager.inst.currentRoundState != RoundState.ShowScore){
         RaycastHit hit;
         bool hitting = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f, LayerMask.GetMask("FoodItem"));
 	    if (hitting)
@@ -55,7 +58,7 @@ public class DisplayManager : MonoBehaviour
             targetOpac = 0;
         }
 
-
+		}
 
         currentOpac = Mathf.Lerp(currentOpac, targetOpac, interp);
         if (Mathf.Abs(cg.alpha - 0.5f) > 0.49f)

@@ -18,9 +18,9 @@ public class Dish
 
 	public string name;
 	public Dictionary<Ingredient, (float, float)> valuations;
-	public Dictionary<Equipment, float> equipmentValuations;
-
-	public Dish(string n, List<Ingredient> ingredients, Dictionary<Equipment, float> equipmentValuations)
+	public float[] equipmentValuations;
+	
+	public Dish(string n, List<Ingredient> ingredients,  float[] equipmentValuations)
 	{
 		this.name = n;
 		valuations = new Dictionary<Ingredient, (float, float)>();
@@ -37,7 +37,7 @@ public class Dish
 	}
 
 
-	public float CalculateScore(Dictionary<Ingredient, float> ingredients, Dictionary<Equipment, float> equipment)
+	public float CalculateScore(Dictionary<Ingredient, float> ingredients, int[] equipmentQuantities)
 	{
 		float sum = 0;
 		foreach(var item in valuations)
@@ -47,15 +47,16 @@ public class Dish
 		}
 		sum /= ingredients.Count;
 
-		float equipScore = 0;
-		foreach(var item in equipmentValuations)
-		{
-			float score = 0.2f * (item.Value - equipment[item.Key]);
-			equipScore += score;
-		}
+		//float equipScore = 0;
+		//float maxEquipScore = 0;
+		//for (int i = 0; i < equipmentValuations.Length; i++)
+		//{
+		//	float score = Mathf.Sqrt(equipmentValuations[i] * equipmentQuantities[i]);
+		//	equipScore += score;
+		//	maxEquipScore += equipmentValuations[i];
+		//}
 
-		return Mathf.Clamp01(sum * equipScore);
-
+		return sum * 100;
 		// involve equipment as well
 	}
 
