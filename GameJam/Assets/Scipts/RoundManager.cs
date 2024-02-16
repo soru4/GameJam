@@ -30,6 +30,7 @@ public class RoundManager : MonoBehaviour
 			0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
 		},
 	};
+	public int roundScore = 0;
 	[SerializeField] Transform ingredientParent;
 	[SerializeField] Vector3 spawnOffset;
 	public  AnimationCurve smooth;
@@ -89,7 +90,7 @@ public class RoundManager : MonoBehaviour
 	void Update()
 	{
 		elapsedTime += Time.deltaTime;
-		switch (GameManager.inst.currentRoundState)
+		switch (GameManager.inst.currentRoundState) 
 		{
 		case RoundState.ScrollPast:
 			

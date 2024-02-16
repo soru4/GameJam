@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scipts\Dish.cs" />
     <Compile Include="Assets\Scipts\BeltManager.cs" />
+    <Compile Include="Assets\Scipts\PhysicalEquipment.cs" />
     <Compile Include="Assets\Scipts\SpotlightManager.cs" />
     <Compile Include="Assets\Scipts\PhysicalDish.cs" />
     <Compile Include="Assets\Scipts\PhysicalIngredient.cs" />

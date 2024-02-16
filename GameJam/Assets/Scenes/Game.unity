@@ -1255,6 +1255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 963703761f3364bd0a7fedfa9ad179ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dishRef:
+    name: 
+    equipmentValuations: []
   beltAnimator: {fileID: 2115483410}
   elapsedTime: 0
   positions:
@@ -1272,6 +1275,7 @@ MonoBehaviour:
   - {fileID: 34040820}
   - {fileID: 40996581}
   instIngredients: []
+  roundScore: 0
   ingredientParent: {fileID: 1770203474}
   spawnOffset: {x: 200, y: 0, z: 0}
   smooth:
@@ -2270,7 +2274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a04e5adb2c24ff3983eaa91fe614bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipmentValues: 
   money: 100
+  levelState: 0
   currentRoundState: 0
   beltSpawnPoint: {fileID: 138115931}
   ScrollPastTime: 5
@@ -3220,26 +3226,26 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.1521526
     - serializedVersion: 3
-      time: -0.5
-      value: 0.3
-      inSlope: 1.5488111
-      outSlope: 1.5488111
+      time: -0.79970974
+      value: 0.36786166
+      inSlope: 1.1028225
+      outSlope: 1.1028225
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.82810944
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0
       value: 0.999839
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.10008496
+      outSlope: -0.10008496
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5
-      value: 0.3
+      time: 0.582428
+      value: 0.42298585
       inSlope: -1.498292
       outSlope: -1.498292
       tangentMode: 0

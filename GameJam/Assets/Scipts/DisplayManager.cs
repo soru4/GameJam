@@ -35,6 +35,7 @@ public class DisplayManager : MonoBehaviour
 			break;
 		case RoundState.ShowScore:
 			roundState.text = "Your dish has been cooked...the score is displayed below...";
+			RoundManager.inst.roundScore += ( (int)RoundManager.inst.dishRef.CalculateScore(GameManager.inst.IngredientAmount, GameManager.inst.equipmentValues));
 			text.text =( (int)RoundManager.inst.dishRef.CalculateScore(GameManager.inst.IngredientAmount, GameManager.inst.equipmentValues)).ToString();
 			targetOpac = 1;
 			

@@ -28,8 +28,8 @@ public class Dish
 		foreach (Ingredient i in ingredients)
 		{
 			float max = i.GetMax();
-			float mean = Random.Range(0, max);
-			float std = max * 0.25f;
+			int mean = (int)Random.Range(1, max);
+			int std = (int)(max * 0.25f);
 			valuations.Add(i, (mean, std));
 		}
 
@@ -40,13 +40,19 @@ public class Dish
 	public float CalculateScore(Dictionary<Ingredient, float> ingredients, int[] equipmentQuantities)
 	{
 		float sum = 0;
+		try{
 		foreach(var item in valuations)
 		{
+			UnityEngine.MonoBehaviour.print("Expected: " + item.Key.ToString() +"  :"+ item.Value.Item1  + " float 2: " + item.Value.Item2+ " Given: " + ingredients[item.Key] );
 			float zScore = (ingredients[item.Key] - item.Value.Item1) / item.Value.Item2;
 			sum += bellCurve.Evaluate(zScore);
+			UnityEngine.MonoBehaviour.print("Sum::" + sum);
 		}
 		sum /= ingredients.Count;
-
+		}
+			catch(KeyNotFoundException ){
+				sum = 0;
+			}
 		//float equipScore = 0;
 		//float maxEquipScore = 0;
 		//for (int i = 0; i < equipmentValuations.Length; i++)
