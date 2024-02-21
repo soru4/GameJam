@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class RoundManager : MonoBehaviour
 {
 	public static RoundManager inst;
@@ -42,8 +43,13 @@ public class RoundManager : MonoBehaviour
 	bool dishInstantiated = false;
 	[SerializeField] AnimationCurve disappearanceSpeeds;
 	[SerializeField] GameObject smokeParticle, dustParticle;
+	[SerializeField] GameObject tearEffect; 
+	[SerializeField] GameObject particle; 
 	public bool roundOver = false;
+	[SerializeField] GameObject DONE;
+	[SerializeField] TextMeshProUGUI t;
 	GameObject finalDish;
+	GameObject p,o;
 	int l = 0;
 	
 	public void QueryDish(){
@@ -61,7 +67,7 @@ public class RoundManager : MonoBehaviour
 		};
 
 		dishRef =  possibleDishes[UnityEngine.Random.Range(0, possibleDishes.Length )];
-
+			
 	}
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
@@ -72,6 +78,8 @@ public class RoundManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		DONE.SetActive(false);
+		tearEffect.SetActive(false);
 		beltAnimator = beltAnimator.GetComponent<BeltManager>();
 		// we want to start with starting the animcontroller
 		RoundTimer += GameManager.inst.CookingTime + GameManager.inst.ScrollPastTime;
@@ -116,12 +124,17 @@ public class RoundManager : MonoBehaviour
 			beltAnimator.SetSpeedColective(1, 0.001f);
 			if(stopScrollStartTime == 0 )
 				stopScrollStartTime = (int)Time.time;
-				
-			if (elapsedTime - stopScrollStartTime >= GameManager.inst.CookingTime+3)
+			if(UnityEngine.Random.Range(0,10000) == 10){
+				tearEffect.SetActive(!tearEffect.active);
+			}
+	
+			if (elapsedTime - stopScrollStartTime >= GameManager.inst.CookingTime + 3)
 			{
 				
 				StartCoroutine(DisappearAll());
 				GameManager.inst.currentRoundState = RoundState.ContinueScroll;
+				tearEffect.SetActive(false);
+				
 			}
 			break;
 				
@@ -131,13 +144,13 @@ public class RoundManager : MonoBehaviour
 			{
 				
 				GameManager.inst.currentRoundState = RoundState.ShowScore;
-				
+	
 
 			}
 			break;
 		case RoundState.ShowScore:
 			if(!roundOver){
-				CameraMovement.inst.MoveToIndex(2);
+				CameraMovement.inst.MoveToIndex(2); 
 				roundOver = true;
 			}
 			beltAnimator.SetSpeedColective(-1.5f, 0.008f);
@@ -195,8 +208,10 @@ public class RoundManager : MonoBehaviour
 		GameManager.inst.IngredientAmount = new Dictionary<Ingredient, float>();
 		GameManager.inst.levelNumber ++;
 		GameManager.inst.money += 120;
-		if(GameManager.inst.levelNumber > 5){
+		if(GameManager.inst.levelNumber >= 5){
 			// GameOver!!
+			DONE.SetActive(true);
+			t.text = roundScore + " / " + "500";
 			
 		}
 		elapsedTime = 0;
