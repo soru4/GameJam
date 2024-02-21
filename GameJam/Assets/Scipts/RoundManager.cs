@@ -56,18 +56,18 @@ public class RoundManager : MonoBehaviour
 		// THIS METHOD IS WRITTEN BY SOHUM!!!!!!!
 		print("getting a new dish!");
 		Dish[] possibleDishes = {
-			new Dish("HotDog", new List<Ingredient> {Ingredient.Hot_Dog_Buns, Ingredient.Sausages, Ingredient.Ketchup}, new float[6] )
+			new Dish("HotDog", new List<Ingredient> {Ingredient.Hot_Dog_Buns, Ingredient.Sausages, Ingredient.Ketchup, Ingredient.Tomatoes, Ingredient.Vegetables, Ingredient.Lettuce, Ingredient.Cheese }, new float[6] )
 			, new Dish("Donut", new List<Ingredient> {Ingredient.Eggs, Ingredient.Dough, Ingredient.Chocolate}, new float[6])
 			, new Dish("Cake", new List<Ingredient> {Ingredient.Eggs, Ingredient.Flour, Ingredient.Chocolate, Ingredient.Strawberries}, new float[6])
 			, new Dish("Burger", new List<Ingredient> {Ingredient.Buns,Ingredient.Cheese,Ingredient.Beef}, new float[6])
-			, new Dish("IceCream", new List<Ingredient> {Ingredient.Eggs, Ingredient.Milk },new float[6])
+			, new Dish("IceCream", new List<Ingredient> {Ingredient.Eggs, Ingredient.Milk,Ingredient.Strawberry_Syrup },new float[6])
 			, new Dish("Pizza", new List<Ingredient> {Ingredient.Dough, Ingredient.Pizza_Sauce, Ingredient.Cheese, Ingredient.Toppings }, new float[6])
 			, new Dish("Taco", new List<Ingredient> {Ingredient.Taco_Meat, Ingredient.Taco_Sauce, Ingredient.Cheese, Ingredient.Tortillas }, new float[6])
 			, new Dish("Sushi", new List<Ingredient> {Ingredient.Rice_and_Seaweed, Ingredient.Fish_Fillets, Ingredient.Avocados},new float[6])
 		};
-
-		dishRef =  possibleDishes[UnityEngine.Random.Range(0, possibleDishes.Length )];
-			
+		Dish d = possibleDishes[UnityEngine.Random.Range(0, possibleDishes.Length )];
+		dishRef =  (d.valuations.Keys.Count) > GameManager.inst.ingredientsPerLevel[GameManager.inst.levelNumber] ? possibleDishes[UnityEngine.Random.Range(0, possibleDishes.Length )] : d;
+		
 	}
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
@@ -207,7 +207,7 @@ public class RoundManager : MonoBehaviour
 		print("resetting");
 		GameManager.inst.IngredientAmount = new Dictionary<Ingredient, float>();
 		GameManager.inst.levelNumber ++;
-		GameManager.inst.money += 120;
+		GameManager.inst.money += (float)(120  * ((roundScore*0.00001f) / GameManager.inst.levelNumber));
 		if(GameManager.inst.levelNumber >= 5){
 			// GameOver!!
 			DONE.SetActive(true);
