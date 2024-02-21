@@ -242,7 +242,7 @@ public class RoundManager : MonoBehaviour
 			if(state == RoundState.ScrollPast){
 				GameManager.inst.totalSpawnedDished++;
 				print(dishRef.name);
-				GameObject x = Instantiate((GameObject)Resources.Load("Prefabs/Dishes/"+dishRef.name), new Vector3(-130f,-9.78f,18.86f), Quaternion.identity);
+				GameObject x = Instantiate((GameObject)Resources.Load("Prefabs/Dishes/"+dishRef.name), new Vector3(-130f,-9.78f, -63.71f), Quaternion.identity);
 				x.transform.localScale = new Vector3(8,8,8);
 				x.AddComponent<PhysicalDish>().onBelt = true;
 				GameManager.inst.currentFinishedDishesOnScreen.Add(x);
