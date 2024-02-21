@@ -18,13 +18,13 @@ public class Dish
 
 	public string name;
 	public Dictionary<Ingredient, (float, float)> valuations;
-	public float[] equipmentValuations;
 	
-	public Dish(string n, List<Ingredient> ingredients,  float[] equipmentValuations)
+	public Dish(string n, Dictionary<Ingredient, (float, float)> ingredientVals)
 	{
 		this.name = n;
-		valuations = new Dictionary<Ingredient, (float, float)>();
-		
+		valuations = ingredientVals;
+
+		/*
 		foreach (Ingredient i in ingredients)
 		{
 			float max = i.GetMax();
@@ -32,8 +32,9 @@ public class Dish
 			int std = (int)(max * 0.25f);
 			valuations.Add(i, (mean, std));
 		}
+		*/
 
-		this.equipmentValuations = equipmentValuations;
+		//this.equipmentValuations = equipmentValuations;
 	}
 
 
