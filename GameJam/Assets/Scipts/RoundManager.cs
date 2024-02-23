@@ -32,6 +32,7 @@ public class RoundManager : MonoBehaviour
 		},
 	};
 	public int roundScore = 0;
+	public int gameScore = 0;
 	[SerializeField] Transform ingredientParent;
 	[SerializeField] Vector3 spawnOffset;
 	public  AnimationCurve smooth;
@@ -49,6 +50,8 @@ public class RoundManager : MonoBehaviour
 	[SerializeField] GameObject doneScreen;
 	[SerializeField] TextMeshProUGUI t;
 	GameObject finalDish;
+
+	[SerializeField] Transform beltDishSpawn, wallDishSpawn;
 
 	public void QueryDish(){
 		// THIS METHOD IS WRITTEN BY SOHUM!!!!!!!
@@ -92,17 +95,15 @@ public class RoundManager : MonoBehaviour
 			beltAnimator.SetSpeedColective(2, 0.001f);
 			if(GameManager.inst.totalSpawnedDished < 1 && GameManager.inst.roundNumber ==0)
 				QueryDish();
-				
-			
-			if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0 && GameManager.inst.totalSpawnedDished < 1 && GameManager.inst.roundNumber ==0)
-				SpawnFinishedDish(GameManager.inst.currentRoundState);
-			if(elapsedTime >= GameManager.inst.ScrollPastTime - slideDuration)
+
+
+			if (GameManager.inst.totalSpawnedDished < 1 && GameManager.inst.roundNumber == 0)
+					SpawnDish(GameManager.inst.currentRoundState);
+
+			if (elapsedTime >= (GameManager.inst.ScrollPastTime - slideDuration))
 			{
 				if (!dishInstantiated)
-				{					
-					
 					dishInstantiated = true;
-				}
 			}
 			
 			break;
@@ -115,7 +116,7 @@ public class RoundManager : MonoBehaviour
 				tearEffect.SetActive(!tearEffect.activeInHierarchy);
 			}
 	
-			if (elapsedTime - stopScrollStartTime >= GameManager.inst.CookingTime + 3)
+			if (elapsedTime - stopScrollStartTime >= GameManager.inst.CookingTime + slideDuration + slideGap * GameManager.inst.ingredientsPerLevel[GameManager.inst.levelNumber])
 			{
 				
 				StartCoroutine(DisappearAll());
@@ -137,12 +138,14 @@ public class RoundManager : MonoBehaviour
 			break;
 		case RoundState.ShowScore:
 			if(!roundOver){
-				CameraMovement.inst.MoveToIndex(2); 
+				CameraMovement.inst.MoveToIndex(2);
+				roundScore = dishRef.CalculateScore(GameManager.inst.IngredientAmount, GameManager.inst.equipmentValues);
+				gameScore += roundScore;
 				roundOver = true;
 			}
 			beltAnimator.SetSpeedColective(-1.5f, 0.008f);
 			if(beltAnimator.speed < 0)
-				finalDish = SpawnFinishedDish(GameManager.inst.currentRoundState);
+				finalDish = SpawnDish(GameManager.inst.currentRoundState);
 			
 			
 
@@ -198,7 +201,7 @@ public class RoundManager : MonoBehaviour
 		if(GameManager.inst.levelNumber >= 5){
 			// GameOver!!
 			doneScreen.SetActive(true);
-			t.text = roundScore + " / " + "500";
+			t.text = gameScore + " / " + "500";
 			
 		}
 		elapsedTime = 0;
@@ -210,40 +213,33 @@ public class RoundManager : MonoBehaviour
 		GameManager.inst.currentFinishedDishesOnScreen = new List<GameObject>();
 
 		QueryDish();
-		SpawnFinishedDish(GameManager.inst.currentRoundState);
+		SpawnDish(GameManager.inst.currentRoundState);
 		roundOver = false;
 	}
+
 	public void ClearIngredients()
 	{
 		Shuffle(ref instIngredients);
 		StartCoroutine(DisappearAll());
 	}
-	public GameObject SpawnFinishedDish(RoundState state){
-	
-		
-		
-		print("dishes");
 
-		if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0){
+	public GameObject SpawnDish(RoundState state){
+
+		if(GameManager.inst.currentFinishedDishesOnScreen.Count > 0)
+			return null;
+		if (state != RoundState.ScrollPast && state != RoundState.ShowScore)
+			return null;
+
+		Transform spawnPos = state == RoundState.ScrollPast ? beltDishSpawn : wallDishSpawn;
+
+		GameManager.inst.totalSpawnedDished++;
+		//print(dishRef.name);
+		GameObject x = Instantiate((GameObject)Resources.Load("Prefabs/Dishes/" + dishRef.name), spawnPos.position, Quaternion.identity);
+		x.transform.localScale = new Vector3(8, 8, 8);
+		x.AddComponent<PhysicalDish>().onBelt = true;
+		GameManager.inst.currentFinishedDishesOnScreen.Add(x);
+		return x;
 		
-			if(state == RoundState.ScrollPast){
-				GameManager.inst.totalSpawnedDished++;
-				print(dishRef.name);
-				GameObject x = Instantiate((GameObject)Resources.Load("Prefabs/Dishes/"+dishRef.name), new Vector3(-130f,-9.78f, -63.71f), Quaternion.identity);
-				x.transform.localScale = new Vector3(8,8,8);
-				x.AddComponent<PhysicalDish>().onBelt = true;
-				GameManager.inst.currentFinishedDishesOnScreen.Add(x);
-				return x;
-			}else if(state == RoundState.ShowScore){
-				GameManager.inst.totalSpawnedDished++;
-				GameObject x = Instantiate((GameObject)Resources.Load("Prefabs/Dishes/"+dishRef.name), new Vector3(230,-9.78f,18.86f), Quaternion.identity);
-				x.AddComponent<PhysicalDish>().onBelt = true;
-				x.transform.localScale = new Vector3(8,8,8);
-				GameManager.inst.currentFinishedDishesOnScreen.Add(x);
-				return x;
-			}
-		}
-		return null;
 	}
 	
 

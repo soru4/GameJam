@@ -45,5 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spotLight: {fileID: 0}
-  spotLightHeight: 6
   lerpAmount: 0.13

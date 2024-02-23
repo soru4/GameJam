@@ -6,7 +6,7 @@ using TMPro;
 
 public class DisplayManager : MonoBehaviour
 {
-	[SerializeField] TextMeshProUGUI text;
+	[SerializeField] TextMeshProUGUI mainText;
 	[SerializeField] TextMeshProUGUI money;
 	[SerializeField] TextMeshProUGUI roundState;
     [SerializeField] CanvasGroup nameCG;
@@ -14,6 +14,7 @@ public class DisplayManager : MonoBehaviour
     float targetOpac;
     [SerializeField] float interp;
 
+	int score;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class DisplayManager : MonoBehaviour
 
     private void Update()
 	{
-		money.text = "$" + GameManager.inst.money;
+		money.text = "$" + GameManager.inst.money.ToString("F2");
 		switch(GameManager.inst.currentRoundState){
 		case RoundState.ScrollPast:
 			roundState.text = "Pay attention to the items on the belt!";
@@ -35,8 +36,7 @@ public class DisplayManager : MonoBehaviour
 			break;
 		case RoundState.ShowScore:
 			roundState.text = "Your dish has been cooked...the score is displayed below...";
-			RoundManager.inst.roundScore += ( (int)RoundManager.inst.dishRef.CalculateScore(GameManager.inst.IngredientAmount, GameManager.inst.equipmentValues));
-			text.text =( (int)RoundManager.inst.dishRef.CalculateScore(GameManager.inst.IngredientAmount, GameManager.inst.equipmentValues)).ToString() + "/100";
+			mainText.text = (RoundManager.inst.roundScore.ToString() + "/100");
 			targetOpac = 1;
 			
 			break;
@@ -50,14 +50,14 @@ public class DisplayManager : MonoBehaviour
 			if (hittingIngredient) {
 				string str = hitI.collider.gameObject.name;
 				Ingredient ing = hitI.collider.GetComponent<PhysicalIngredient>().ingredientType;
-				str += " - " + GameManager.inst.GetCount(ing) + "/" + ing.GetMax();
-				text.text = str;
+				str += " - " + GameManager.inst.GetCount(ing) + "/10";
+				mainText.text = str;
 				targetOpac = 1;
 			}
 			else if (hittingDish)
 			{
 				string str = hitD.collider.gameObject.name.Replace("(Clone)", "").Replace("_", " ");
-				text.text = str;
+				mainText.text = str;
 				targetOpac = 1;
 			}
             else

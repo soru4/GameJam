@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-
     public static GameManager inst;
 	public Dictionary<Ingredient, float> IngredientAmount = new Dictionary<Ingredient, float>();
 	public int[] equipmentValues;
@@ -50,7 +49,7 @@ public class GameManager : MonoBehaviour
             Ingredient ingredient = physicalIngredient.ingredientType;
             if (amount >= 1 && money < ingredient.GetCost())
                 return;
-	        if (GetCount(ingredient) + amount > ingredient.GetMax() || GetCount(ingredient) + amount < 0)
+	        if (GetCount(ingredient) + amount > 10 || GetCount(ingredient) + amount < 0)
 		        return;
             totalNumOfIngredients += amount;
             if (amount >= 1)
@@ -74,7 +73,7 @@ public class GameManager : MonoBehaviour
             }
 
             IngredientAmount[ingredient] = IngredientAmount.ContainsKey(ingredient) ? IngredientAmount[ingredient] + amount : amount;
-            IngredientAmount[ingredient] = Mathf.Clamp(IngredientAmount[ingredient], 0, ingredient.GetMax());
+            IngredientAmount[ingredient] = Mathf.Clamp(IngredientAmount[ingredient], 0, 10);
             money -= amount * ingredient.GetCost();
             print(IngredientAmount[ingredient]);
         }
@@ -86,7 +85,7 @@ public class GameManager : MonoBehaviour
 		return IngredientAmount.ContainsKey(ing) ?(int)  IngredientAmount[ing] : 0;
 	}
 
- public void UpdateEquipmentAmount(PhysicalEquipment physicalEquipment, int amount)
+    public void UpdateEquipmentAmount(PhysicalEquipment physicalEquipment, int amount)
 	{
 		if (levelState != LevelState.Equipping)
 			return;

@@ -6,10 +6,11 @@ using UnityEngine;
 public class Dish
 {
 	public static List<Dish> dishes = new List<Dish>();
+	public static int dishIndex;
 
 	public static Dish QueryDish() //implement later
 	{
-		return dishes[Random.Range(0, dishes.Count)];
+		return dishes[dishIndex++];
 	}
     
 	public static AnimationCurve bellCurve;
@@ -38,7 +39,7 @@ public class Dish
 	}
 
 
-	public float CalculateScore(Dictionary<Ingredient, float> ingredients, int[] equipmentQuantities)
+	public int CalculateScore(Dictionary<Ingredient, float> ingredients, int[] equipmentQuantities)
 	{
 		float sum = 0;
 
@@ -53,7 +54,7 @@ public class Dish
 		}
 		sum /= ingredients.Count;
 
-		return sum * 100;
+		return (int)Mathf.Round(sum * 100);
 	}
 
 
@@ -68,14 +69,11 @@ public enum Ingredient
 
 public static class IngredientMethods
 {
-	public static Dictionary<Ingredient, int> ingredientMax = new Dictionary<Ingredient, int>();
 	public static Dictionary<Ingredient, float> ingredientCosts = new Dictionary<Ingredient, float>();
-
-	public static void SetMax(this Ingredient ing, int max) => ingredientMax[ing] = max;
-	public static int GetMax(this Ingredient ing) => ingredientMax[ing];
 
 	public static void SetCost(this Ingredient ing, float cost) => ingredientCosts[ing] = cost;
 	public static float GetCost(this Ingredient ing) => ingredientCosts[ing];
+
 }
 
 
