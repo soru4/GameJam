@@ -78,15 +78,15 @@ public enum Ingredient
 
 public static class IngredientMethods
 {
-	public static Dictionary<Ingredient, int> ingredientMax = new Dictionary<Ingredient, int>();
 	public static Dictionary<Ingredient, float> ingredientCosts = new Dictionary<Ingredient, float>();
-
-	public static void SetMax(this Ingredient ing, int max) => ingredientMax[ing] = max;
-	public static int GetMax(this Ingredient ing) => ingredientMax[ing];
 
 	public static void SetCost(this Ingredient ing, float cost) => ingredientCosts[ing] = cost;
 	public static float GetCost(this Ingredient ing) => ingredientCosts[ing];
+
 }
+
+
+
 
 
 

@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
             Ingredient ingredient = physicalIngredient.ingredientType;
             if (amount >= 1 && money < ingredient.GetCost())
                 return;
-	        if (GetCount(ingredient) + amount > ingredient.GetMax() || GetCount(ingredient) + amount < 0)
+	        if (GetCount(ingredient) + amount > 10 || GetCount(ingredient) + amount < 0)
 		        return;
             totalNumOfIngredients += amount;
             if (amount >= 1)
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
             }
 
             IngredientAmount[ingredient] = IngredientAmount.ContainsKey(ingredient) ? IngredientAmount[ingredient] + amount : amount;
-            IngredientAmount[ingredient] = Mathf.Clamp(IngredientAmount[ingredient], 0, ingredient.GetMax());
+	        IngredientAmount[ingredient] = Mathf.Clamp(IngredientAmount[ingredient], 0, 10);
             money -= amount * ingredient.GetCost();
             print(IngredientAmount[ingredient]);
         }

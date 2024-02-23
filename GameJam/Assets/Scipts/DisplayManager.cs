@@ -54,10 +54,30 @@ public class DisplayManager : MonoBehaviour
 	    }
 
 
+<<<<<<< Updated upstream
         else
         {
             targetOpac = 0;
         }
+=======
+			if (hittingIngredient) {
+				string str = hitI.collider.gameObject.name;
+				Ingredient ing = hitI.collider.GetComponent<PhysicalIngredient>().ingredientType;
+				str += " - " + GameManager.inst.GetCount(ing) + "/10";
+				text.text = str;
+				targetOpac = 1;
+			}
+			else if (hittingDish)
+			{
+				string str = hitD.collider.gameObject.name.Replace("(Clone)", "").Replace("_", " ");
+				text.text = str;
+				targetOpac = 1;
+			}
+            else
+            {
+				targetOpac = 0;
+			}
+>>>>>>> Stashed changes
 
 		}
 

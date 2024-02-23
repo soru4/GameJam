@@ -109,7 +109,7 @@ public class RoundManager : MonoBehaviour
 			
 			if(GameManager.inst.currentFinishedDishesOnScreen.Count <=0 && GameManager.inst.totalSpawnedDished < 1 && GameManager.inst.roundNumber ==0)
 				SpawnFinishedDish(GameManager.inst.currentRoundState);
-			if(elapsedTime >= GameManager.inst.ScrollPastTime - slideDuration)
+			if(elapsedTime >= (GameManager.inst.ScrollPastTime - slideDuration - slideGap*GameManager.inst.ingredientsPerLevel[GameManager.inst.levelNumber]))
 			{
 				if (!dishInstantiated)
 				{					
@@ -128,7 +128,7 @@ public class RoundManager : MonoBehaviour
 				tearEffect.SetActive(!tearEffect.active);
 			}
 	
-			if (elapsedTime - stopScrollStartTime >= GameManager.inst.CookingTime + 3)
+			if (elapsedTime - stopScrollStartTime >= GameManager.inst.CookingTime + slideDuration * (slideGap *GameManager.inst.ingredientsPerLevel[GameManager.inst.levelNumber]) )
 			{
 				
 				StartCoroutine(DisappearAll());
@@ -207,7 +207,11 @@ public class RoundManager : MonoBehaviour
 		print("resetting");
 		GameManager.inst.IngredientAmount = new Dictionary<Ingredient, float>();
 		GameManager.inst.levelNumber ++;
+<<<<<<< Updated upstream
 		GameManager.inst.money += (float)(120  * ((roundScore*0.00001f) / GameManager.inst.levelNumber));
+=======
+		GameManager.inst.money += (float)Math.Round((float)(120  * ((roundScore*0.00001f) / GameManager.inst.levelNumber)),2);
+>>>>>>> Stashed changes
 		if(GameManager.inst.levelNumber >= 5){
 			// GameOver!!
 			DONE.SetActive(true);
