@@ -9,7 +9,7 @@ public class DisplayManager : MonoBehaviour
 	[SerializeField] TextMeshProUGUI text;
 	[SerializeField] TextMeshProUGUI money;
 	[SerializeField] TextMeshProUGUI roundState;
-    [SerializeField] CanvasGroup cg;
+    [SerializeField] CanvasGroup nameCG;
     float currentOpac;
     float targetOpac;
     [SerializeField] float interp;
@@ -41,31 +41,37 @@ public class DisplayManager : MonoBehaviour
 			
 			break;
 		}
+
 		if(GameManager.inst.currentRoundState != RoundState.ShowScore){
-        RaycastHit hit;
-        bool hitting = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f, LayerMask.GetMask("FoodItem"));
-	    if (hitting)
-	    {
-		    string str = hit.collider.gameObject.name;
-		    Ingredient ing = hit.collider.GetComponent<PhysicalIngredient>().ingredientType;
-		    str += " - " + GameManager.inst.GetCount(ing) + "/" + ing.GetMax();
-		    text.text = str;
-		    targetOpac = 1;
-	    }
 
+            bool hittingIngredient = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hitI, 1000f, LayerMask.GetMask("FoodItem"));
+			bool hittingDish = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hitD, 1000f, LayerMask.GetMask("DishItem"));
 
-        else
-        {
-            targetOpac = 0;
-        }
+			if (hittingIngredient) {
+				string str = hitI.collider.gameObject.name;
+				Ingredient ing = hitI.collider.GetComponent<PhysicalIngredient>().ingredientType;
+				str += " - " + GameManager.inst.GetCount(ing) + "/" + ing.GetMax();
+				text.text = str;
+				targetOpac = 1;
+			}
+			else if (hittingDish)
+			{
+				string str = hitD.collider.gameObject.name.Replace("(Clone)", "").Replace("_", " ");
+				text.text = str;
+				targetOpac = 1;
+			}
+            else
+            {
+				targetOpac = 0;
+			}
 
 		}
 
         currentOpac = Mathf.Lerp(currentOpac, targetOpac, interp);
-        if (Mathf.Abs(cg.alpha - 0.5f) > 0.49f)
+        if (Mathf.Abs(nameCG.alpha - 0.5f) > 0.49f)
             currentOpac = targetOpac;
 
-        cg.alpha = currentOpac;
+        nameCG.alpha = currentOpac;
     }
 
 }

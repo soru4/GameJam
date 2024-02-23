@@ -28,7 +28,8 @@ public class SpotlightManager : MonoBehaviour
 			spotLightPoint = point;
 			locking = false;
 
-			if (hit.collider.gameObject.layer == LayerMask.NameToLayer("FoodItem") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Equipment"))
+			List<int> lockOnLayers = new List<int> { LayerMask.NameToLayer("FoodItem"), LayerMask.NameToLayer("DishItem"), };
+			if (lockOnLayers.Contains(hit.collider.gameObject.layer))
 			{
 				spotLightPoint = hit.transform.position;
 				locking = true;

@@ -969,7 +969,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishRef:
     name: 
-    equipmentValuations: []
   beltAnimator: {fileID: 2115483410}
   elapsedTime: 0
   positions:
@@ -1172,7 +1171,7 @@ MonoBehaviour:
   text: {fileID: 1506221104}
   money: {fileID: 104145933}
   roundState: {fileID: 1934517289}
-  cg: {fileID: 1506221106}
+  nameCG: {fileID: 1506221106}
   interp: 0.1
 --- !u!4 &746998744
 Transform:

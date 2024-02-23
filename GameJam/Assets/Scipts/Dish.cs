@@ -41,30 +41,19 @@ public class Dish
 	public float CalculateScore(Dictionary<Ingredient, float> ingredients, int[] equipmentQuantities)
 	{
 		float sum = 0;
-		try{
+
 		foreach(var item in valuations)
 		{
+			if (!ingredients.ContainsKey(item.Key))
+				continue;
 			UnityEngine.MonoBehaviour.print("Expected: " + item.Key.ToString() +"  :"+ item.Value.Item1  + " float 2: " + item.Value.Item2+ " Given: " + ingredients[item.Key] );
 			float zScore = (ingredients[item.Key] - item.Value.Item1) / item.Value.Item2;
 			sum += bellCurve.Evaluate(zScore);
 			UnityEngine.MonoBehaviour.print("Sum::" + sum);
 		}
 		sum /= ingredients.Count;
-		}
-			catch(KeyNotFoundException ){
-				sum = 0;
-			}
-		//float equipScore = 0;
-		//float maxEquipScore = 0;
-		//for (int i = 0; i < equipmentValuations.Length; i++)
-		//{
-		//	float score = Mathf.Sqrt(equipmentValuations[i] * equipmentQuantities[i]);
-		//	equipScore += score;
-		//	maxEquipScore += equipmentValuations[i];
-		//}
 
 		return sum * 100;
-		// involve equipment as well
 	}
 
 

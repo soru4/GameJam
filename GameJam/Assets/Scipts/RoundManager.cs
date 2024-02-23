@@ -46,12 +46,10 @@ public class RoundManager : MonoBehaviour
 	[SerializeField] GameObject tearEffect; 
 	[SerializeField] GameObject particle; 
 	public bool roundOver = false;
-	[SerializeField] GameObject DONE;
+	[SerializeField] GameObject doneScreen;
 	[SerializeField] TextMeshProUGUI t;
 	GameObject finalDish;
-	GameObject p,o;
-	int l = 0;
-	
+
 	public void QueryDish(){
 		// THIS METHOD IS WRITTEN BY SOHUM!!!!!!!
 		print("getting a new dish!");
@@ -67,7 +65,7 @@ public class RoundManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		DONE.SetActive(false);
+		doneScreen.SetActive(false);
 		tearEffect.SetActive(false);
 		beltAnimator = beltAnimator.GetComponent<BeltManager>();
 		// we want to start with starting the animcontroller
@@ -114,7 +112,7 @@ public class RoundManager : MonoBehaviour
 			if(stopScrollStartTime == 0 )
 				stopScrollStartTime = (int)Time.time;
 			if(UnityEngine.Random.Range(0,10000) == 10){
-				tearEffect.SetActive(!tearEffect.active);
+				tearEffect.SetActive(!tearEffect.activeInHierarchy);
 			}
 	
 			if (elapsedTime - stopScrollStartTime >= GameManager.inst.CookingTime + 3)
@@ -199,7 +197,7 @@ public class RoundManager : MonoBehaviour
 		GameManager.inst.money += 120;
 		if(GameManager.inst.levelNumber >= 5){
 			// GameOver!!
-			DONE.SetActive(true);
+			doneScreen.SetActive(true);
 			t.text = roundScore + " / " + "500";
 			
 		}

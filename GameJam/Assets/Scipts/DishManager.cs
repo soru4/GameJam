@@ -11,6 +11,7 @@ public class DishManager : MonoBehaviour
     void Awake()
     {
         Dish.bellCurve = bellCurve;
+        CreateDishes();
         InitializeCostDict();
         InitializeMinMaxDict();
     }
@@ -19,79 +20,71 @@ public class DishManager : MonoBehaviour
     {
         Dish.dishes = new List<Dish>
         {
-            new Dish( "HotDog",
+            new Dish( "Hot_Dog",
                 new Dictionary<Ingredient, (float,float)>
                 {
                     {Ingredient.Hot_Dog_Buns,   (2, 1)  },
-                    {Ingredient.Sausages,       (0, 0)  },
-                    {Ingredient.Ketchup,        (0, 0)  },  
+                    {Ingredient.Sausages,       (1, 1)  },
+                    {Ingredient.Ketchup,        (1, 1)  },  
                 }
             ),
-            new Dish( "HotDog",
+            new Dish( "Donut",
                 new Dictionary<Ingredient, (float,float)>
                 {
-                    {Ingredient.Eggs,   (2, 1)  },
-                    {Ingredient.Dough,       (0, 0)  },
-                    {Ingredient.Chocolate,        (0, 0)  },
+                    {Ingredient.Eggs,           (2, 1)  },
+                    {Ingredient.Dough,          (1, 1)  },
+                    {Ingredient.Chocolate,      (1, 1)  },
                 }
             ),
-            new Dish( "HotDog",
+            new Dish( "Cake",
                 new Dictionary<Ingredient, (float,float)>
                 {
-                    {Ingredient.Eggs,   (2, 1)  },
-                    {Ingredient.Flour,       (0, 0)  },
-                    {Ingredient.Chocolate,        (0, 0)  },
-                    {Ingredient.Strawberries,        (0, 0)  },
+                    {Ingredient.Eggs,           (2, 1)  },
+                    {Ingredient.Flour,          (1, 1)  },
+                    {Ingredient.Chocolate,      (1, 1)  },
+                    {Ingredient.Strawberries,   (1, 1)  },
                 }
             ),
-            new Dish( "HotDog",
+            new Dish( "Burger",
                 new Dictionary<Ingredient, (float,float)>
                 {
-                    {Ingredient.Eggs,   (2, 1)  },
-                    {Ingredient.Dough,       (0, 0)  },
-                    {Ingredient.Chocolate,        (0, 0)  },
+                    {Ingredient.Buns,           (2, 1)  },
+                    {Ingredient.Cheese,         (1, 1)  },
+                    {Ingredient.Beef,           (1, 1)  },
                 }
             ),
-            new Dish( "HotDog",
+            new Dish( "Ice_Cream",
                 new Dictionary<Ingredient, (float,float)>
                 {
-                    {Ingredient.Buns,   (2, 1)  },
-                    {Ingredient.Cheese,       (0, 0)  },
-                    {Ingredient.Beef,        (0, 0)  },
+                    {Ingredient.Eggs,               (2, 1)  },
+                    {Ingredient.Milk,               (1, 1)  },
+                    {Ingredient.Strawberry_Syrup,   (1, 1)  },
                 }
             ),
-            new Dish( "HotDog",
+            new Dish( "Pizza",
                 new Dictionary<Ingredient, (float,float)>
                 {
-                    {Ingredient.Eggs,   (2, 1)  },
-                    {Ingredient.Milk,       (0, 0)  },
-                    {Ingredient.Strawberry_Syrup,        (0, 0)  },
+                    {Ingredient.Dough,          (2, 1)  },
+                    {Ingredient.Pizza_Sauce,    (0, 0)  },
+                    {Ingredient.Cheese,         (0, 0)  },
+                    {Ingredient.Toppings,       (0, 0)  },
                 }
             ),
-            new Dish( "HotDog",
+            new Dish( "Taco",
                 new Dictionary<Ingredient, (float,float)>
                 {
-                    {Ingredient.Dough,   (2, 1)  },
-                    {Ingredient.Pizza_Sauce,       (0, 0)  },
-                    {Ingredient.Cheese,        (0, 0)  },
-                    {Ingredient.Toppings,        (0, 0)  },
+                    {Ingredient.Taco_Meat,      (2, 1)  },
+                    {Ingredient.Taco_Sauce,     (1, 1)  },
+                    {Ingredient.Cheese,         (1, 1)  },
+                    {Ingredient.Tortillas,      (1, 1)  },
                 }
             ),
-            new Dish( "HotDog",
-                new Dictionary<Ingredient, (float,float)>
-                {
-                    {Ingredient.Taco_Meat,   (2, 1)  },
-                    {Ingredient.Taco_Sauce,       (0, 0)  },
-                    {Ingredient.Cheese,        (0, 0)  },
-                    {Ingredient.Tortillas,        (0, 0)  },
-                }
-            ),
-            new Dish( "HotDog",
+            new Dish( "Sushi",
                 new Dictionary<Ingredient, (float,float)>
                 {
                     {Ingredient.Rice_and_Seaweed,   (2, 1)  },
-                    {Ingredient.Fish_Fillets,       (0, 0)  },
-                    {Ingredient.Avocados,        (0, 0)  },
+                    {Ingredient.Fish_Fillets,       (1, 1)  },
+                    {Ingredient.Avocados,           (1, 1)  },
                 }
             ),
         };

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1780966370739621465}
   - component: {fileID: 4870589283500238810}
   - component: {fileID: 8923041572950467309}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2201158832767512055}
   - component: {fileID: 3080480754719076947}
   - component: {fileID: 2032634267695638012}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: iceCream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 5000612572452579945}
   - component: {fileID: 2211605232626960652}
   - component: {fileID: 1472598253230486344}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 7577851374960062063}
   - component: {fileID: 925117904034584713}
   - component: {fileID: 3145493898904406340}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: glass (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,8 +347,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3314517671963965478}
   - component: {fileID: 1792372703339051588}
-  m_Layer: 0
-  m_Name: IceCream
+  m_Layer: 7
+  m_Name: Ice_Cream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 827209752299087221}
   - component: {fileID: 5202867089204457701}
   - component: {fileID: 7208632407300413442}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: iceCream (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
